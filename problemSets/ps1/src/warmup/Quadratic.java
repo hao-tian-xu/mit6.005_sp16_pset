@@ -12,11 +12,27 @@ public class Quadratic {
      * @return all integers x such that ax^2 + bx + c = 0.
      */
     public static Set<Integer> roots(int a, int b, int c) {
-        double temp = Math.sqrt(b*b - 4.0*a*c);     // use 4.0 instead of 4 to deal with
-        Set<Integer> result = new HashSet<>();
-        result.add((int) (-b - temp) / (2 * a));
-        result.add((int) (-b + temp) / (2 * a));
-        return result;
+        Set<Integer> results = new HashSet<>();
+        /* Single Degenerate Root */
+        if (a == 0) {
+            results.add(-c / b);
+            return results;
+        }
+        double temp1 = b*b - 4.0*a*c;
+        /* Complex Roots */
+        if (temp1 < 0) return results;
+        double temp2 = Math.sqrt(temp1);     // use 4.0 instead of 4 to deal with
+        double result1 = (-b - temp2) / (2 * a);
+        double result2 = (-b + temp2) / (2 * a);
+        /* Integer Roots */
+        if (isInteger(result1)) results.add((int) result1);
+        if (isInteger(result2)) results.add((int) result2);
+        return results;
+    }
+
+    private static boolean isInteger(double num) {
+        double temp = num - (int) num;
+        return temp == 0 || temp == 1;
     }
 
     /**
