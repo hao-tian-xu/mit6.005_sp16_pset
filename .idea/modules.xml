@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/experiment/experiment.iml" filepath="$PROJECT_DIR$/experiment/experiment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/mit6.005_sp16.iml" filepath="$PROJECT_DIR$/.idea/mit6.005_sp16.iml" />
-      <module fileurl="file://$PROJECT_DIR$/problemSets/problemSets.iml" filepath="$PROJECT_DIR$/problemSets/problemSets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/problemSets/ps1/ps1.iml" filepath="$PROJECT_DIR$/problemSets/ps1/ps1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/problemSets/ps2/ps2.iml" filepath="$PROJECT_DIR$/problemSets/ps2/ps2.iml" />
     </modules>
   </component>
 </project>
