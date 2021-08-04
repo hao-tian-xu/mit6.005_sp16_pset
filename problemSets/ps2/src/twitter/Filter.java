@@ -1,6 +1,11 @@
 package twitter;
 
+//import javax.lang.model.element.NestingKind;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Filter consists of methods that filter a list of tweets for those matching a
@@ -24,7 +29,11 @@ public class Filter {
      *         in the same order as in the input list.
      */
     public static List<Tweet> writtenBy(List<Tweet> tweets, String username) {
-        throw new RuntimeException("not implemented");
+        List<Tweet> writtenBy = new ArrayList<>();
+        for (Tweet tweet : tweets) {
+            if (Objects.equals(tweet.getAuthor(), username)) writtenBy.add(tweet);
+        }
+        return writtenBy;
     }
 
     /**
@@ -38,7 +47,17 @@ public class Filter {
      *         in the same order as in the input list.
      */
     public static List<Tweet> inTimespan(List<Tweet> tweets, Timespan timespan) {
-        throw new RuntimeException("not implemented");
+        final Instant start = timespan.getStart();
+        final Instant end = timespan.getEnd();
+
+        final List<Tweet> inTimespan = new ArrayList<>();
+        for (Tweet tweet : tweets) {
+            Instant timestamp = tweet.getTimestamp();
+            if ((timestamp.isAfter(start) || timestamp.equals(start))
+            &&  (timestamp.isBefore(end)  || timestamp.equals(end)))
+                inTimespan.add(tweet);
+        }
+        return inTimespan;
     }
 
     /**
@@ -57,7 +76,18 @@ public class Filter {
      *         same order as in the input list.
      */
     public static List<Tweet> containing(List<Tweet> tweets, List<String> words) {
-        throw new RuntimeException("not implemented");
+        final List<Tweet> containing = new ArrayList<>();
+
+        for (Tweet tweet : tweets) {
+            List<String> tweetWords = Arrays.asList(tweet.getText().split(" "));
+            for (String word : words) {
+                if (tweetWords.contains(word)){
+                    containing.add(tweet);
+                    break;
+                }
+            }
+        }
+        return containing;
     }
 
     /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.
