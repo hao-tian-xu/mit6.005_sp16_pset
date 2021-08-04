@@ -16,7 +16,8 @@ import org.junit.Test;
  *
  * influencers
  *  Partitions:
- *      number of graph keys: 0, 1, >=2
+ *      number of graph entries: 0, 1, >=2
+ *      if empty entry exists
  *      if multi people have same influences
  *
  */
@@ -27,6 +28,10 @@ public class SocialNetworkTest {
     public void testAssertionsEnabled() {
         assert false; // make sure assertions are enabled with VM argument: -ea
     }
+
+    /*********************
+     * guessFollowsGraph *
+     *********************/
 
     /* init test data */
     private static final Instant d1 = Instant.parse("2016-02-17T10:00:00Z");
@@ -39,7 +44,6 @@ public class SocialNetworkTest {
     private static final Tweet tweet3 = new Tweet(3, "stupidity", "@hidldidl hi didl", d3);
     private static final Tweet tweet4 = new Tweet(4, "stupidity", "@Hidldidl Hi didl", d4);
 
-    /* guessFollowsGraph */
     /** None tweet */
     @Test
     public void testGuessFollowsGraphNoneTweet() {
@@ -69,14 +73,66 @@ public class SocialNetworkTest {
         assertTrue(!followsGraph.containsKey("bbitdiddle") || followsGraph.get("bbitdiddle").isEmpty());
     }
 
-    /* influencers */
+    /***************
+     * influencers *
+     ***************/
 
+    /** init influencers test data */
+    final Map<String, Set<String>> followsGraph1 = new HashMap<>();
+    final Map<String, Set<String>> followsGraph2 = new HashMap<>();
+    final Set<String> follows1 = new HashSet<>();
+    final Set<String> follows2 = new HashSet<>();
+    final Set<String> follows3 = new HashSet<>();
+
+    private void initInfluencersTestData() {
+        follows1.add("whoami");
+        follows1.add("hidldidl");
+        follows2.add("hidldidl");
+        follows3.add("bbitdiddle");
+        follows3.add("whoami");
+        followsGraph1.put("alyssa", follows1);
+        followsGraph1.put("whoami", follows2 );
+        followsGraph2.putAll(followsGraph1);
+        followsGraph2.put("hidldidl", follows3);
+    }
+
+
+    /** None entry */
     @Test
     public void testInfluencersEmpty() {
         Map<String, Set<String>> followsGraph = new HashMap<>();
         List<String> influencers = SocialNetwork.influencers(followsGraph);
         
         assertTrue("expected empty list", influencers.isEmpty());
+    }
+
+    /** Single entry and empty entry */
+    @Test
+    public void testInfluencersSingleEntryEmpty() {
+        Map<String, Set<String>> followsGraph = new HashMap<>();
+        followsGraph.put("alyssa", new HashSet<>());
+        List<String> influencers = SocialNetwork.influencers(followsGraph);
+
+        assertEquals(Arrays.asList("alyssa"), influencers);
+    }
+
+    /** Multi entries and no same influences */
+    @Test
+    public void testInfluencersMultiEntriesNoSame() {
+        initInfluencersTestData();
+        List<String> influencers = SocialNetwork.influencers(followsGraph1);
+
+        assertEquals(Arrays.asList("hidldidl", "whoami", "alyssa"), influencers);
+    }
+
+    /** Multi entries and same influences */
+    @Test
+    public void testInfluencersMultiEntriesMultiMax() {
+        initInfluencersTestData();
+        List<String> influencers = SocialNetwork.influencers(followsGraph2);
+
+        assertTrue(Objects.equals(Arrays.asList("hidldidl", "whoami", "bbitdiddle", "alyssa"), influencers)
+            || Objects.equals(Arrays.asList("whoami", "hidldidl", "bbitdiddle", "alyssa"), influencers));
     }
 
     /*
