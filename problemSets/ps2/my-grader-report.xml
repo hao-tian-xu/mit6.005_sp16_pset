@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="2" failures="0" hostname="Haotians-MBP" id="0" name="ExtractTest" package="twitter" skipped="0" tests="3" time="0.098" timestamp="2021-08-01T08:57:43">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="0" name="ExtractTest" package="twitter" skipped="0" tests="7" time="0.488" timestamp="2021-08-04T11:58:13">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -94,7 +94,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.ExtractTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.ExtractTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5942743546389457318.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit2325571643667770097.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.ExtractTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.ExtractTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5552249431946673139.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit8870925111917553003.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -150,30 +150,26 @@
 
       </properties>
 
-      <testcase classname="twitter.ExtractTest" name="testGetMentionedUsersNoMention" time="0.006">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Extract.getMentionedUsers(Extract.java:43)
-	at twitter.ExtractTest.testGetMentionedUsersNoMention(ExtractTest.java:39)
-</error>
+      <testcase classname="twitter.ExtractTest" name="testGetTimespanDuplicateTweets" time="0.018" />
 
-      </testcase>
+      <testcase classname="twitter.ExtractTest" name="testGetTimespanMultiTweets" time="0.0" />
 
-      <testcase classname="twitter.ExtractTest" name="testGetTimespanTwoTweets" time="0.0">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Extract.getTimespan(Extract.java:24)
-	at twitter.ExtractTest.testGetTimespanTwoTweets(ExtractTest.java:31)
-</error>
+      <testcase classname="twitter.ExtractTest" name="testGetMentionedUsersNoMention" time="0.001" />
 
-      </testcase>
+      <testcase classname="twitter.ExtractTest" name="testGetTimespanTwoTweets" time="0.0" />
 
-      <testcase classname="twitter.ExtractTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="twitter.ExtractTest" name="testGetMentionedUsersMulti" time="0.005" />
+
+      <testcase classname="twitter.ExtractTest" name="testAssertionsEnabled" time="0.001" />
+
+      <testcase classname="twitter.ExtractTest" name="testGetTimespanOneTweet" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="3" failures="0" hostname="Haotians-MBP" id="1" name="FilterTest" package="twitter" skipped="0" tests="4" time="0.097" timestamp="2021-08-01T08:57:43">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="1" name="FilterTest" package="twitter" skipped="0" tests="13" time="0.231" timestamp="2021-08-04T11:58:14">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -267,7 +263,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.FilterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.FilterTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5570460275425613276.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit1184384451775629486.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.FilterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.FilterTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher4552717216469121812.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit1727163116877276458.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -323,38 +319,38 @@
 
       </properties>
 
-      <testcase classname="twitter.FilterTest" name="testContaining" time="0.006">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.containing(Filter.java:60)
-	at twitter.FilterTest.testContaining(FilterTest.java:51)
-</error>
+      <testcase classname="twitter.FilterTest" name="testInTimespanMultiTweetsSingleResult" time="0.007" />
 
-      </testcase>
+      <testcase classname="twitter.FilterTest" name="testContainingSingleTweetNoneWordNoneResult" time="0.0" />
 
-      <testcase classname="twitter.FilterTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="twitter.FilterTest" name="testInTimespanMultipleTweetsTweetAtEndMultipleResults" time="0.0" />
 
-      <testcase classname="twitter.FilterTest" name="testWrittenByMultipleTweetsSingleResult" time="0.0">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.writtenBy(Filter.java:27)
-	at twitter.FilterTest.testWrittenByMultipleTweetsSingleResult(FilterTest.java:31)
-</error>
+      <testcase classname="twitter.FilterTest" name="testContainingMultiTweetsSingleWordSubWordSingleResult" time="0.0" />
 
-      </testcase>
+      <testcase classname="twitter.FilterTest" name="testContainingMultiTweetsMultiWordsMultiResults" time="0.0" />
 
-      <testcase classname="twitter.FilterTest" name="testInTimespanMultipleTweetsMultipleResults" time="0.001">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.inTimespan(Filter.java:41)
-	at twitter.FilterTest.testInTimespanMultipleTweetsMultipleResults(FilterTest.java:42)
-</error>
+      <testcase classname="twitter.FilterTest" name="testWrittenBySingleTweetNoneResult" time="0.0" />
 
-      </testcase>
+      <testcase classname="twitter.FilterTest" name="testInTimespanSingleTweetZeroTimespanNoneResult" time="0.005" />
+
+      <testcase classname="twitter.FilterTest" name="testAssertionsEnabled" time="0.005" />
+
+      <testcase classname="twitter.FilterTest" name="testWrittenByMultipleTweetsMultipleResults" time="0.001" />
+
+      <testcase classname="twitter.FilterTest" name="testWrittenByMultipleTweetsSingleResult" time="0.001" />
+
+      <testcase classname="twitter.FilterTest" name="testInTimespanNoneTweet" time="0.0" />
+
+      <testcase classname="twitter.FilterTest" name="testWrittenByNoneTweet" time="0.0" />
+
+      <testcase classname="twitter.FilterTest" name="testContainingNoneTweet" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="2" failures="0" hostname="Haotians-MBP" id="2" name="SocialNetworkTest" package="twitter" skipped="0" tests="3" time="0.083" timestamp="2021-08-01T08:57:44">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="2" name="SocialNetworkTest" package="twitter" skipped="0" tests="8" time="0.152" timestamp="2021-08-04T11:58:15">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -448,7 +444,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.SocialNetworkTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.SocialNetworkTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher1759300312034829974.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit5242328377981422006.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.SocialNetworkTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.SocialNetworkTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher8765316331830269366.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit3721631489874609697.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -504,30 +500,28 @@
 
       </properties>
 
-      <testcase classname="twitter.SocialNetworkTest" name="testGuessFollowsGraphEmpty" time="0.012">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.SocialNetwork.guessFollowsGraph(SocialNetwork.java:41)
-	at twitter.SocialNetworkTest.testGuessFollowsGraphEmpty(SocialNetworkTest.java:27)
-</error>
+      <testcase classname="twitter.SocialNetworkTest" name="testGuessFollowsGraphMultiTweetMultiMention" time="0.003" />
 
-      </testcase>
+      <testcase classname="twitter.SocialNetworkTest" name="testAssertionsEnabled" time="0.001" />
 
-      <testcase classname="twitter.SocialNetworkTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="twitter.SocialNetworkTest" name="testInfluencersMultiEntriesMultiMax" time="0.002" />
 
-      <testcase classname="twitter.SocialNetworkTest" name="testInfluencersEmpty" time="0.001">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.SocialNetwork.influencers(SocialNetwork.java:54)
-	at twitter.SocialNetworkTest.testInfluencersEmpty(SocialNetworkTest.java:35)
-</error>
+      <testcase classname="twitter.SocialNetworkTest" name="testInfluencersMultiEntriesNoSame" time="0.0" />
 
-      </testcase>
+      <testcase classname="twitter.SocialNetworkTest" name="testGuessFollowsGraphSingleTweetNoneMention" time="0.0" />
+
+      <testcase classname="twitter.SocialNetworkTest" name="testInfluencersEmpty" time="0.001" />
+
+      <testcase classname="twitter.SocialNetworkTest" name="testInfluencersSingleEntryEmpty" time="0.0" />
+
+      <testcase classname="twitter.SocialNetworkTest" name="testGuessFollowsGraphNoneTweet" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="3" name="ExtractTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.107" timestamp="2021-08-01T08:57:44">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="3" name="ExtractTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.267" timestamp="2021-08-04T11:58:15">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -621,7 +615,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.ExtractTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.ExtractTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher2761118858563357367.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit683511329711511294.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.ExtractTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.ExtractTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher4336399061144964773.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit7672978303481019115.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-empty:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-staff:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -677,14 +671,14 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.ExtractTestRunner" name="yourTests_staffBadImpl_Extract_alwaysReturnsEmpty" time="0.031" />
+      <testcase classname="twitter.staff.ExtractTestRunner" name="yourTests_staffBadImpl_Extract_alwaysReturnsEmpty" time="0.095" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="4" name="FilterTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.106" timestamp="2021-08-01T08:57:44">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="4" name="FilterTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.408" timestamp="2021-08-04T11:58:16">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -778,7 +772,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.FilterTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.FilterTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5156345507611232251.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit6826823393326210946.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.FilterTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.FilterTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher7267200464820560991.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit8380137679819244739.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-empty:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-staff:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -834,14 +828,14 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.FilterTestRunner" name="yourTests_staffBadImpl_Filter_alwaysReturnsEmpty" time="0.031" />
+      <testcase classname="twitter.staff.FilterTestRunner" name="yourTests_staffBadImpl_Filter_alwaysReturnsEmpty" time="0.082" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="2" failures="0" hostname="Haotians-MBP" id="5" name="OriginalExtractTest" package="twitter.staff" skipped="0" tests="3" time="0.11" timestamp="2021-08-01T08:57:42">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="5" name="OriginalExtractTest" package="twitter.staff" skipped="0" tests="3" time="0.242" timestamp="2021-08-04T11:58:09">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -935,7 +929,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalExtractTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalExtractTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher7788281635426467668.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit3157030230806452385.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalExtractTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalExtractTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher1874518887202407736.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit736322897241040562.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-beta:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -991,21 +985,9 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.OriginalExtractTest" name="testGetMentionedUsersNoMention" time="0.005">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Extract.getMentionedUsers(Extract.java:43)
-	at twitter.staff.OriginalExtractTest.testGetMentionedUsersNoMention(OriginalExtractTest.java:43)
-</error>
+      <testcase classname="twitter.staff.OriginalExtractTest" name="testGetMentionedUsersNoMention" time="0.009" />
 
-      </testcase>
-
-      <testcase classname="twitter.staff.OriginalExtractTest" name="testGetTimespanTwoTweets" time="0.0">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Extract.getTimespan(Extract.java:24)
-	at twitter.staff.OriginalExtractTest.testGetTimespanTwoTweets(OriginalExtractTest.java:35)
-</error>
-
-      </testcase>
+      <testcase classname="twitter.staff.OriginalExtractTest" name="testGetTimespanTwoTweets" time="0.001" />
 
       <testcase classname="twitter.staff.OriginalExtractTest" name="testAssertionsEnabled" time="0.0" />
 
@@ -1014,7 +996,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="3" failures="0" hostname="Haotians-MBP" id="6" name="OriginalFilterTest" package="twitter.staff" skipped="0" tests="4" time="0.101" timestamp="2021-08-01T08:57:42">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="6" name="OriginalFilterTest" package="twitter.staff" skipped="0" tests="4" time="0.411" timestamp="2021-08-04T11:58:10">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -1108,7 +1090,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalFilterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalFilterTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher1653470949223434894.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit8249296769642048245.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalFilterTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalFilterTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher3923575551799536672.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit5832542674062030477.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-beta:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -1164,38 +1146,20 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.OriginalFilterTest" name="testContaining" time="0.008">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.containing(Filter.java:60)
-	at twitter.staff.OriginalFilterTest.testContaining(OriginalFilterTest.java:55)
-</error>
-
-      </testcase>
+      <testcase classname="twitter.staff.OriginalFilterTest" name="testContaining" time="0.005" />
 
       <testcase classname="twitter.staff.OriginalFilterTest" name="testAssertionsEnabled" time="0.0" />
 
-      <testcase classname="twitter.staff.OriginalFilterTest" name="testWrittenByMultipleTweetsSingleResult" time="0.0">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.writtenBy(Filter.java:27)
-	at twitter.staff.OriginalFilterTest.testWrittenByMultipleTweetsSingleResult(OriginalFilterTest.java:35)
-</error>
+      <testcase classname="twitter.staff.OriginalFilterTest" name="testWrittenByMultipleTweetsSingleResult" time="0.0" />
 
-      </testcase>
-
-      <testcase classname="twitter.staff.OriginalFilterTest" name="testInTimespanMultipleTweetsMultipleResults" time="0.001">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.Filter.inTimespan(Filter.java:41)
-	at twitter.staff.OriginalFilterTest.testInTimespanMultipleTweetsMultipleResults(OriginalFilterTest.java:46)
-</error>
-
-      </testcase>
+      <testcase classname="twitter.staff.OriginalFilterTest" name="testInTimespanMultipleTweetsMultipleResults" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="2" failures="0" hostname="Haotians-MBP" id="7" name="OriginalSocialNetworkTest" package="twitter.staff" skipped="0" tests="3" time="0.073" timestamp="2021-08-01T08:57:42">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="7" name="OriginalSocialNetworkTest" package="twitter.staff" skipped="0" tests="3" time="0.143" timestamp="2021-08-04T11:58:12">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -1289,7 +1253,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalSocialNetworkTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalSocialNetworkTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher7439727897057171656.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit3747743408984128656.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.OriginalSocialNetworkTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.OriginalSocialNetworkTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5184739963264643365.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit3699386323727325830.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-beta:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -1345,30 +1309,18 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testGuessFollowsGraphEmpty" time="0.012">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.SocialNetwork.guessFollowsGraph(SocialNetwork.java:41)
-	at twitter.staff.OriginalSocialNetworkTest.testGuessFollowsGraphEmpty(OriginalSocialNetworkTest.java:31)
-</error>
+      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testGuessFollowsGraphEmpty" time="0.007" />
 
-      </testcase>
+      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testAssertionsEnabled" time="0.0" />
 
-      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testAssertionsEnabled" time="0.001" />
-
-      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testInfluencersEmpty" time="0.0">
-          <error message="not implemented" type="java.lang.RuntimeException">java.lang.RuntimeException: not implemented
-	at twitter.SocialNetwork.influencers(SocialNetwork.java:54)
-	at twitter.staff.OriginalSocialNetworkTest.testInfluencersEmpty(OriginalSocialNetworkTest.java:39)
-</error>
-
-      </testcase>
+      <testcase classname="twitter.staff.OriginalSocialNetworkTest" name="testInfluencersEmpty" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="1" hostname="Haotians-MBP" id="8" name="SocialNetworkTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.096" timestamp="2021-08-01T08:57:45">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="8" name="SocialNetworkTestRunner" package="twitter.staff" skipped="0" tests="1" time="0.259" timestamp="2021-08-04T11:58:18">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -1462,7 +1414,7 @@
 
           <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.SocialNetworkTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.SocialNetworkTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher5062255425057494615.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit3762950391197357449.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner twitter.staff.SocialNetworkTestRunner skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/TEST-twitter.staff.SocialNetworkTestRunner.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junitvmwatcher4571433680924620504.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/junit7906767997153205366.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-empty:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-impls-staff:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps2/.grader/bin-tests-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -1518,13 +1470,7 @@
 
       </properties>
 
-      <testcase classname="twitter.staff.SocialNetworkTestRunner" name="yourTests_staffBadImpl_SocialNetwork_alwaysReturnsEmpty" time="0.021">
-          <failure message="None of your tests failed when run against our broken implementation: 3 tests ran with 0 failures in 2 ms." type="junit.framework.AssertionFailedError">junit.framework.AssertionFailedError: None of your tests failed when run against our broken implementation: 3 tests ran with 0 failures in 2 ms.
-	at twitter.staff.TestHelpers.assertFailure(TestHelpers.java:59)
-	at twitter.staff.SocialNetworkTestRunner.yourTests_staffBadImpl_SocialNetwork_alwaysReturnsEmpty(SocialNetworkTestRunner.java:23)
-</failure>
-
-      </testcase>
+      <testcase classname="twitter.staff.SocialNetworkTestRunner" name="yourTests_staffBadImpl_SocialNetwork_alwaysReturnsEmpty" time="0.115" />
 
       <system-out><![CDATA[]]></system-out>
 

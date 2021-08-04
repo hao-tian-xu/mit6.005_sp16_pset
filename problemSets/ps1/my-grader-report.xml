@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="0" name="QuadraticTest" package="warmup" skipped="0" tests="8" time="0.078" timestamp="2021-08-01T09:22:48">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="0" name="QuadraticTest" package="warmup" skipped="0" tests="8" time="0.094" timestamp="2021-08-01T14:54:45">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -96,7 +96,7 @@
 
           <property name="beta.grader.jar" value="ps1-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner warmup.QuadraticTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/TEST-warmup.QuadraticTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junitvmwatcher8985444592083645839.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junit5905928349815284017.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner warmup.QuadraticTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/TEST-warmup.QuadraticTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junitvmwatcher8985071259834120854.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junit170087171971939216.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -154,7 +154,7 @@
 
       <testcase classname="warmup.QuadraticTest" name="testOneRoot" time="0.001" />
 
-      <testcase classname="warmup.QuadraticTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="warmup.QuadraticTest" name="testAssertionsEnabled" time="0.001" />
 
       <testcase classname="warmup.QuadraticTest" name="testOneZeroRoot" time="0.0" />
 
@@ -164,7 +164,7 @@
 
       <testcase classname="warmup.QuadraticTest" name="testOppositeSignRoots" time="0.0" />
 
-      <testcase classname="warmup.QuadraticTest" name="testNegativeRoots" time="0.0" />
+      <testcase classname="warmup.QuadraticTest" name="testNegativeRoots" time="0.001" />
 
       <testcase classname="warmup.QuadraticTest" name="testLargeRoots" time="0.001" />
 
@@ -173,7 +173,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="1" name="QuadraticTest" package="warmup.staff" skipped="0" tests="3" time="0.081" timestamp="2021-08-01T09:22:49">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="1" name="QuadraticTest" package="warmup.staff" skipped="0" tests="3" time="0.065" timestamp="2021-08-01T14:54:46">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -269,7 +269,7 @@
 
           <property name="beta.grader.jar" value="ps1-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner warmup.staff.QuadraticTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/TEST-warmup.staff.QuadraticTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junitvmwatcher8303574820354716090.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junit8528907253425795072.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner warmup.staff.QuadraticTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/TEST-warmup.staff.QuadraticTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junitvmwatcher8088920167116943654.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/junit674093269160011085.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/bin-tests-final:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps1/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
