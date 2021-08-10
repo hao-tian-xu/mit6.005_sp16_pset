@@ -1,7 +1,5 @@
 package library;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -89,17 +87,31 @@ public class Book {
         return "title: " + title + ", authors: " + authors + ", publication year: " + year;
     }
 
-    // uncomment the following methods if you need to implement equals and hashCode,
-    // or delete them if you don't
-    // @Override
-    // public boolean equals(Object that) {
-    //     throw new RuntimeException("not implemented yet");
-    // }
-    // 
-    // @Override
-    // public int hashCode() {
-    //     throw new RuntimeException("not implemented yet");
-    // }
+    /**
+     * @param that another instance of Book
+     * @return if two books have same title, authors and year, return true
+     */
+    @Override
+    public boolean equals(Object that) {
+        return that instanceof Book && this.sameValue((Book) that);
+    }
+
+    private boolean sameValue(Book that) {
+        if (title.equals(that.getTitle()) && authors.equals(that.getAuthors()) && year.equals(that.getYear()))
+            return true;
+        return false;
+    }
+
+    /**
+     * @return sum of hashcode of title, year and each author
+     */
+    @Override
+    public int hashCode() {
+        int hashCode = 0;
+        for (String author : authors) hashCode += author.hashCode();
+        hashCode += (title.hashCode() + year.hashCode());
+        return hashCode;
+    }
 
 
 

@@ -151,7 +151,7 @@ public class LibraryTest {
         assertEquals(new HashSet<>(Arrays.asList(copy1_1, copy1_2)), library.allCopies(book1));
         assertEquals(new HashSet<>(Arrays.asList(copy1_2)), library.availableCopies(book1));
         assertEquals(new HashSet<>(Arrays.asList(copy2)), library.allCopies(book2));
-        assertEquals(Collections.emptySet(), library.availableCopies(book2));
+        assertEquals(new HashSet<>(Arrays.asList(copy2)), library.availableCopies(book2));
 
         assertTrue(library.find(author1).containsAll(Arrays.asList(book1, book2)));
         assertEquals(Arrays.asList(book1), library.find(title1));
