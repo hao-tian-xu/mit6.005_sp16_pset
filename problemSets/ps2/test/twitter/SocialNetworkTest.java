@@ -13,6 +13,7 @@ import org.junit.Test;
  *  Partitions:
  *      number of tweets: 0, 1, >=2
  *      number of @-mentions per tweet: 0, >=1
+ *      self-mention
  *
  * influencers
  *  Partitions:
@@ -42,7 +43,7 @@ public class SocialNetworkTest {
     private static final Tweet tweet1 = new Tweet(1, "alyssa", "is it reasonable to talk about rivest so much? @whoami", d1);
     private static final Tweet tweet2 = new Tweet(2, "bbitdiddle", "hi@hotmail.com rivest talk in 30 minutes #hype", d2);
     private static final Tweet tweet3 = new Tweet(3, "stupidity", "@hidldidl hi didl", d3);
-    private static final Tweet tweet4 = new Tweet(4, "stupidity", "@Hidldidl Hi didl", d4);
+    private static final Tweet tweet4 = new Tweet(4, "Stupidity", "@Hidldidl Hi didl @Stupidity ", d4);
 
     /** None tweet */
     @Test
@@ -57,25 +58,34 @@ public class SocialNetworkTest {
     public void testGuessFollowsGraphSingleTweetNoneMention() {
         Map<String, Set<String>> followsGraph = SocialNetwork.guessFollowsGraph(Arrays.asList(tweet2));
 
-        assertTrue("expected empty graph or key with empty value", followsGraph.isEmpty() || followsGraph.get("bbitdiddle").isEmpty());
+        assertTrue(followsGraph.isEmpty() || new ArrayList<>(followsGraph.values()).get(0).isEmpty());
     }
 
     /** Multi tweets and multi mentions */
     @Test
-    public void testGuessFollowsGraphMultiTweetMultiMention() {
+    public void testGuessFollowsGraphMultiTweetMultiCaseMentionSelf() {
         Map<String, Set<String>> followsGraph = SocialNetwork.guessFollowsGraph(Arrays.asList(tweet1, tweet2, tweet3, tweet4));
 
         assertFalse("expected non-empty graph", followsGraph.isEmpty());
-        assertEquals(1, followsGraph.get("alyssa").size());
-        assertTrue(followsGraph.get("alyssa").contains("whoami"));
-        assertEquals(1, followsGraph.get("alyssa").size());
-        assertTrue(followsGraph.get("stupidity").contains("hidldidl"));
-        assertTrue(!followsGraph.containsKey("bbitdiddle") || followsGraph.get("bbitdiddle").isEmpty());
+
+        Map<String, Set<String>> followsGraphCase = new HashMap<>();
+        for (String username : followsGraph.keySet()) {
+            assertFalse(followsGraphCase.containsKey(username.toLowerCase()));
+            followsGraphCase.put(username.toLowerCase(), new HashSet<>());
+            for (String followed : followsGraph.get(username))
+                followsGraphCase.get(username.toLowerCase()).add(followed.toLowerCase());
+        }
+
+        assertEquals(1, followsGraphCase.get("alyssa").size());
+        assertTrue(followsGraphCase.get("alyssa").contains("whoami"));
+        assertEquals(1, followsGraphCase.get("stupidity").size());
+        assertTrue(followsGraphCase.get("stupidity").contains("hidldidl"));
+        assertTrue(!followsGraphCase.containsKey("bbitdiddle") || followsGraphCase.get("bbitdiddle").isEmpty());
     }
 
-    /***************
+    /* *********** *
      * influencers *
-     ***************/
+     * *********** */
 
     /** init influencers test data */
     final Map<String, Set<String>> followsGraph1 = new HashMap<>();
@@ -87,7 +97,7 @@ public class SocialNetworkTest {
     private void initInfluencersTestData() {
         follows1.add("whoami");
         follows1.add("hidldidl");
-        follows2.add("hidldidl");
+        follows2.add("Hidldidl");
         follows3.add("bbitdiddle");
         follows3.add("whoami");
         followsGraph1.put("alyssa", follows1);
@@ -127,7 +137,7 @@ public class SocialNetworkTest {
 
     /** Multi entries and same influences */
     @Test
-    public void testInfluencersMultiEntriesMultiMax() {
+    public void testInfluencersMultiEntriesMultiMaxCase() {
         initInfluencersTestData();
         List<String> influencers = SocialNetwork.influencers(followsGraph2);
 

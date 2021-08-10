@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <testsuites>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="0" name="BigLibraryTest" package="library" skipped="0" tests="2" time="0.162" timestamp="2021-08-10T07:31:59">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="0" name="BigLibraryTest" package="library" skipped="0" tests="2" time="0.114" timestamp="2021-08-10T08:24:38">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -13,6 +13,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -80,7 +82,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -94,7 +96,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BigLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BigLibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher6668528672535455586.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit4326355287921139233.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BigLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BigLibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher2055201595594812261.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit7171241571157677578.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -159,7 +161,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="1" name="BookCopyTest" package="library" skipped="0" tests="3" time="0.112" timestamp="2021-08-10T07:32:00">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="1" name="BookCopyTest" package="library" skipped="0" tests="3" time="0.087" timestamp="2021-08-10T08:24:38">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -172,6 +174,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -239,7 +243,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -253,7 +257,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BookCopyTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher2242227174007291910.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit2772807751056224046.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BookCopyTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher6479807216743530931.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit1188018996871747812.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -309,7 +313,7 @@
 
       </properties>
 
-      <testcase classname="library.BookCopyTest" name="testAssertionsEnabled" time="0.001" />
+      <testcase classname="library.BookCopyTest" name="testAssertionsEnabled" time="0.008" />
 
       <testcase classname="library.BookCopyTest" name="testBookCopyMultiDamaged" time="0.001" />
 
@@ -320,7 +324,7 @@
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="2" name="BookTest" package="library" skipped="0" tests="3" time="0.088" timestamp="2021-08-10T07:32:00">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="2" name="BookTest" package="library" skipped="0" tests="3" time="0.086" timestamp="2021-08-10T08:24:39">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -333,6 +337,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -400,7 +406,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -414,7 +420,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BookTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher1496404655137850809.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit2191327110455974266.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.BookTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher5824605518971375774.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit2992047174781770473.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -470,18 +476,18 @@
 
       </properties>
 
-      <testcase classname="library.BookTest" name="testBookOneAuthorYearZero" time="0.001" />
+      <testcase classname="library.BookTest" name="testBookOneAuthorYearZero" time="0.003" />
 
-      <testcase classname="library.BookTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="library.BookTest" name="testAssertionsEnabled" time="0.001" />
 
-      <testcase classname="library.BookTest" name="testBookMultiAuthors" time="0.001" />
+      <testcase classname="library.BookTest" name="testBookMultiAuthors" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="3" name="LibraryTest" package="library" skipped="0" tests="10" time="0.096" timestamp="2021-08-10T07:32:01">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="3" name="LibraryTest" package="library" skipped="0" tests="10" time="0.11" timestamp="2021-08-10T08:24:39">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -494,6 +500,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -561,7 +569,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -575,7 +583,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.LibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher8602308422247804618.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit8429948937503837305.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.LibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher3449793060472404009.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit1151518973116068046.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -635,28 +643,28 @@
 
       <testcase classname="library.LibraryTest" name="testLibraryEmpty[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testLibrarySingleBookSingleCopyLost[library.SmallLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testLibrarySingleBookSingleCopyLost[library.SmallLibrary]" time="0.001" />
 
-      <testcase classname="library.LibraryTest" name="testLibraryFindIdentical[library.SmallLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testLibraryFindIdentical[library.SmallLibrary]" time="0.001" />
 
-      <testcase classname="library.LibraryTest" name="testLibraryMultiBooksMultiCopiesCheckoutCheckin[library.BigLibrary]" time="0.001" />
+      <testcase classname="library.LibraryTest" name="testLibraryMultiBooksMultiCopiesCheckoutCheckin[library.BigLibrary]" time="0.003" />
 
       <testcase classname="library.LibraryTest" name="testLibraryEmpty[library.BigLibrary]" time="0.0" />
 
       <testcase classname="library.LibraryTest" name="testAssertionsEnabled[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.LibraryTest" name="testLibrarySingleBookSingleCopyLost[library.BigLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testLibrarySingleBookSingleCopyLost[library.BigLibrary]" time="0.005" />
 
-      <testcase classname="library.LibraryTest" name="testLibraryFindIdentical[library.BigLibrary]" time="0.0" />
+      <testcase classname="library.LibraryTest" name="testLibraryFindIdentical[library.BigLibrary]" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="4" name="BookCopyTest" package="library.beta" skipped="0" tests="4" time="0.092" timestamp="2021-08-10T07:32:01">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="4" name="BookCopyTest" package="library.beta" skipped="0" tests="4" time="0.092" timestamp="2021-08-10T08:24:40">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -669,6 +677,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -736,7 +746,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -750,7 +760,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.BookCopyTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher5225150828528766685.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit5473244893946705756.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookCopyTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.BookCopyTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher3016274745743469698.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit3907051710410970848.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -808,18 +818,18 @@
 
       <testcase classname="library.beta.BookCopyTest" name="testEqualsHashcode" time="0.002" />
 
-      <testcase classname="library.beta.BookCopyTest" name="testGetBook" time="0.001" />
+      <testcase classname="library.beta.BookCopyTest" name="testGetBook" time="0.0" />
 
       <testcase classname="library.beta.BookCopyTest" name="testAssertionsEnabled" time="0.0" />
 
-      <testcase classname="library.beta.BookCopyTest" name="testCondition" time="0.0" />
+      <testcase classname="library.beta.BookCopyTest" name="testCondition" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="5" name="BookTest" package="library.beta" skipped="0" tests="4" time="0.094" timestamp="2021-08-10T07:32:02">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="5" name="BookTest" package="library.beta" skipped="0" tests="4" time="0.09" timestamp="2021-08-10T08:24:40">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -832,6 +842,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -899,7 +911,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -913,7 +925,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.BookTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher404273625228245672.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit2316352017657111916.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.BookTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher2813869070302021828.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit4659803334533787518.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -969,20 +981,20 @@
 
       </properties>
 
-      <testcase classname="library.beta.BookTest" name="testNormalBook" time="0.002" />
+      <testcase classname="library.beta.BookTest" name="testNormalBook" time="0.006" />
 
       <testcase classname="library.beta.BookTest" name="testEqualsHashCode" time="0.0" />
 
-      <testcase classname="library.beta.BookTest" name="testAssertionsEnabled" time="0.0" />
+      <testcase classname="library.beta.BookTest" name="testAssertionsEnabled" time="0.001" />
 
-      <testcase classname="library.beta.BookTest" name="testMinimalBook" time="0.002" />
+      <testcase classname="library.beta.BookTest" name="testMinimalBook" time="0.0" />
 
       <system-out><![CDATA[]]></system-out>
 
       <system-err><![CDATA[]]></system-err>
 
   </testsuite>
-  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="6" name="LibraryTest" package="library.beta" skipped="0" tests="16" time="0.133" timestamp="2021-08-10T07:32:02">
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="6" name="LibraryTest" package="library.beta" skipped="0" tests="16" time="0.099" timestamp="2021-08-10T08:24:41">
       <properties>
           <property name="java.vendor" value="Amazon.com Inc." />
 
@@ -995,6 +1007,8 @@
           <property name="os.name" value="Mac OS X" />
 
           <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
 
           <property name="java.vm.specification.vendor" value="Oracle Corporation" />
 
@@ -1062,7 +1076,7 @@
 
           <property name="java.specification.vendor" value="Oracle Corporation" />
 
-          <property name="which.tests.ran" value="BETA" />
+          <property name="which.tests.ran" value="BETA + FINAL" />
 
           <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
 
@@ -1076,7 +1090,7 @@
 
           <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
 
-          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.LibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher4127527913382726755.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit7472850624085406526.properties" />
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.beta.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.beta.LibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher7412136349193468519.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit2347891707174102659.properties" />
 
           <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
 
@@ -1134,25 +1148,25 @@
 
       <testcase classname="library.beta.LibraryTest" name="testBuy[library.SmallLibrary]" time="0.002" />
 
-      <testcase classname="library.beta.LibraryTest" name="testFind[library.SmallLibrary]" time="0.005" />
+      <testcase classname="library.beta.LibraryTest" name="testFind[library.SmallLibrary]" time="0.003" />
 
-      <testcase classname="library.beta.LibraryTest" name="testLose[library.SmallLibrary]" time="0.0" />
+      <testcase classname="library.beta.LibraryTest" name="testLose[library.SmallLibrary]" time="0.001" />
 
-      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.0" />
+      <testcase classname="library.beta.LibraryTest" name="testEqualsHashcode[library.SmallLibrary]" time="0.001" />
 
-      <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testAssertionsEnabled[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.SmallLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.SmallLibrary]" time="0.0" />
 
       <testcase classname="library.beta.LibraryTest" name="testBuy[library.BigLibrary]" time="0.001" />
 
       <testcase classname="library.beta.LibraryTest" name="testFind[library.BigLibrary]" time="0.001" />
 
-      <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testLose[library.BigLibrary]" time="0.0" />
 
       <testcase classname="library.beta.LibraryTest" name="testAllCopiesAvailableCopies[library.BigLibrary]" time="0.0" />
 
@@ -1162,7 +1176,508 @@
 
       <testcase classname="library.beta.LibraryTest" name="testIsAvailable[library.BigLibrary]" time="0.0" />
 
-      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.001" />
+      <testcase classname="library.beta.LibraryTest" name="testCheckinCheckout[library.BigLibrary]" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="7" name="BookTest" package="library.staff" skipped="0" tests="2" time="0.082" timestamp="2021-08-10T08:24:41">
+      <properties>
+          <property name="java.vendor" value="Amazon.com Inc." />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Mac OS X" />
+
+          <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant" />
+
+          <property name="java.runtime.version" value="1.8.0_302-b08" />
+
+          <property name="user.name" value="tian" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_302" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="UTF-8" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="/" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/grader.xml" />
+
+          <property name="os.version" value="11.5.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=":" />
+
+          <property name="java.vm.version" value="25.302-b08" />
+
+          <property name="ant.library.dir" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib" />
+
+          <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+
+          <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+
+          <property name="user.home" value="/Users/tian" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+
+          <property name="java.vendor.url" value="https://aws.amazon.com/corretto/" />
+
+          <property name="java.vm.vendor" value="Amazon.com Inc." />
+
+          <property name="gopherProxySet" value="false" />
+
+          <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.BookTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.staff.BookTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher4884938237010684656.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit3788100535006360664.properties" />
+
+          <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-tests-final:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.10.5 compiled on July 10 2018" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="unknown" />
+
+          <property name="java.io.tmpdir" value="/var/folders/cl/q7f35lm10fgg9zlqg6ltn72w0000gn/T/" />
+
+          <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/" />
+
+          <property name="os.arch" value="x86_64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="/Users/tian/Library/Java/Extensions:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+
+          <property name="user.dir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="line.separator" value="&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar" />
+
+          <property name="file.encoding" value="UTF-8" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.BookTest" name="testRepExposureInGetAuthors" time="0.002" />
+
+      <testcase classname="library.staff.BookTest" name="testRepExposureInConstructor" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="8" name="LibraryTest" package="library.staff" skipped="0" tests="12" time="0.098" timestamp="2021-08-10T08:24:42">
+      <properties>
+          <property name="java.vendor" value="Amazon.com Inc." />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Mac OS X" />
+
+          <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant" />
+
+          <property name="java.runtime.version" value="1.8.0_302-b08" />
+
+          <property name="user.name" value="tian" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_302" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="UTF-8" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="/" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/grader.xml" />
+
+          <property name="os.version" value="11.5.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=":" />
+
+          <property name="java.vm.version" value="25.302-b08" />
+
+          <property name="ant.library.dir" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib" />
+
+          <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+
+          <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+
+          <property name="user.home" value="/Users/tian" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+
+          <property name="java.vendor.url" value="https://aws.amazon.com/corretto/" />
+
+          <property name="java.vm.vendor" value="Amazon.com Inc." />
+
+          <property name="gopherProxySet" value="false" />
+
+          <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.LibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.staff.LibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher7321185699368515827.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit7540012215489653169.properties" />
+
+          <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-tests-final:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.10.5 compiled on July 10 2018" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="unknown" />
+
+          <property name="java.io.tmpdir" value="/var/folders/cl/q7f35lm10fgg9zlqg6ltn72w0000gn/T/" />
+
+          <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/" />
+
+          <property name="os.arch" value="x86_64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="/Users/tian/Library/Java/Extensions:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+
+          <property name="user.dir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="line.separator" value="&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar" />
+
+          <property name="file.encoding" value="UTF-8" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.LibraryTest" name="testDifferentObjectsRepresentingSameBook[library.SmallLibrary]" time="0.003" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingLastCopy[library.SmallLibrary]" time="0.002" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingAndRebuyingBook[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAllCopies[library.SmallLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAvailableCopies[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInFind[library.SmallLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testDifferentObjectsRepresentingSameBook[library.BigLibrary]" time="0.002" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingLastCopy[library.BigLibrary]" time="0.002" />
+
+      <testcase classname="library.staff.LibraryTest" name="testFindAfterLosingAndRebuyingBook[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAllCopies[library.BigLibrary]" time="0.0" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInAvailableCopies[library.BigLibrary]" time="0.001" />
+
+      <testcase classname="library.staff.LibraryTest" name="testRepExposureInFind[library.BigLibrary]" time="0.0" />
+
+      <system-out><![CDATA[]]></system-out>
+
+      <system-err><![CDATA[]]></system-err>
+
+  </testsuite>
+  <testsuite errors="0" failures="0" hostname="Haotians-MBP" id="9" name="SmallLibraryTest" package="library.staff" skipped="0" tests="1" time="0.073" timestamp="2021-08-10T08:24:42">
+      <properties>
+          <property name="java.vendor" value="Amazon.com Inc." />
+
+          <property name="sun.java.launcher" value="SUN_STANDARD" />
+
+          <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+
+          <property name="build.sysclasspath" value="ignore" />
+
+          <property name="os.name" value="Mac OS X" />
+
+          <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+
+          <property name="final.grading" value="true" />
+
+          <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+
+          <property name="ant.home" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant" />
+
+          <property name="java.runtime.version" value="1.8.0_302-b08" />
+
+          <property name="user.name" value="tian" />
+
+          <property name="ant.build.javac.target" value="1.8" />
+
+          <property name="user.language" value="en" />
+
+          <property name="sun.boot.library.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib" />
+
+          <property name="grader.report.file" value="my-grader-report.xml" />
+
+          <property name="ant.project.default-target" value="all" />
+
+          <property name="java.version" value="1.8.0_302" />
+
+          <property name="user.timezone" value="" />
+
+          <property name="sun.arch.data.model" value="64" />
+
+          <property name="java.endorsed.dirs" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/endorsed" />
+
+          <property name="sun.cpu.isalist" value="" />
+
+          <property name="sun.jnu.encoding" value="UTF-8" />
+
+          <property name="file.encoding.pkg" value="sun.io" />
+
+          <property name="file.separator" value="/" />
+
+          <property name="java.specification.name" value="Java Platform API Specification" />
+
+          <property name="java.class.version" value="52.0" />
+
+          <property name="user.country" value="US" />
+
+          <property name="java.home" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre" />
+
+          <property name="java.vm.info" value="mixed mode" />
+
+          <property name="ant.file" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/grader.xml" />
+
+          <property name="os.version" value="11.5.1" />
+
+          <property name="final.grader.jar" value="ps3-final-grader.jar" />
+
+          <property name="path.separator" value=":" />
+
+          <property name="java.vm.version" value="25.302-b08" />
+
+          <property name="ant.library.dir" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib" />
+
+          <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+
+          <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+
+          <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+
+          <property name="user.home" value="/Users/tian" />
+
+          <property name="java.specification.vendor" value="Oracle Corporation" />
+
+          <property name="which.tests.ran" value="BETA + FINAL" />
+
+          <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+
+          <property name="java.vendor.url" value="https://aws.amazon.com/corretto/" />
+
+          <property name="java.vm.vendor" value="Amazon.com Inc." />
+
+          <property name="gopherProxySet" value="false" />
+
+          <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+
+          <property name="beta.grader.jar" value="ps3-beta-grader.jar" />
+
+          <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner library.staff.SmallLibraryTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/TEST-library.staff.SmallLibraryTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junitvmwatcher7936354103213350711.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/junit211495057910323426.properties" />
+
+          <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-tests-final:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
+
+          <property name="ant.version" value="Apache Ant(TM) version 1.10.5 compiled on July 10 2018" />
+
+          <property name="project.name" value="ps3-library" />
+
+          <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+
+          <property name="ant.file.type" value="file" />
+
+          <property name="java.vm.specification.version" value="1.8" />
+
+          <property name="sun.cpu.endian" value="little" />
+
+          <property name="didit.desc" value="Running our tests against your implementation" />
+
+          <property name="sun.os.patch.level" value="unknown" />
+
+          <property name="java.io.tmpdir" value="/var/folders/cl/q7f35lm10fgg9zlqg6ltn72w0000gn/T/" />
+
+          <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/" />
+
+          <property name="os.arch" value="x86_64" />
+
+          <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+
+          <property name="java.ext.dirs" value="/Users/tian/Library/Java/Extensions:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+
+          <property name="user.dir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="line.separator" value="&#xa;" />
+
+          <property name="zipfile" value="my-submission.zip" />
+
+          <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+
+          <property name="problem.set" value="ps3" />
+
+          <property name="basedir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps3" />
+
+          <property name="ant.java.version" value="1.8" />
+
+          <property name="ant.core.lib" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar" />
+
+          <property name="file.encoding" value="UTF-8" />
+
+          <property name="java.specification.version" value="1.8" />
+
+          <property name="grader.dir" value=".grader" />
+
+          <property name="ant.project.invoked-targets" value="all" />
+
+      </properties>
+
+      <testcase classname="library.staff.SmallLibraryTest" name="testUsesTheGivenRep" time="0.001" />
 
       <system-out><![CDATA[]]></system-out>
 

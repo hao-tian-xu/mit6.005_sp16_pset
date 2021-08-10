@@ -1,5 +1,6 @@
 package library;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class Book {
     //  safety from rep exposure argument
     //      All fields are private
     //      String title and Integer year are immutable
-    //      List authors is implemented as an immutable list  in Book()
+    //      authors is mutable, so Book() make a defensive copy from parameter and use an immutable view for field
     
     /**
      * Make a Book.
@@ -36,8 +37,9 @@ public class Book {
      * @param year Year when this edition was published in the conventional (Common Era) calendar.  Must be nonnegative. 
      */
     public Book(String title, List<String> authors, int year) {
+        List<String> authorsCopy = new ArrayList<>(authors);
         this.title = title;
-        this.authors = Collections.unmodifiableList(authors);
+        this.authors = Collections.unmodifiableList(authorsCopy);
         this.year = year;
         checkRep();
     }

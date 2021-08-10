@@ -13,6 +13,7 @@ import org.junit.Test;
  *  Partitions:
  *      number of tweets: 0, 1, >=2
  *      number of tweets containing the username: 0, 1, >=2
+ *      case-insensitive
  *
  * inTimespan
  *  Partitions:
@@ -27,6 +28,7 @@ import org.junit.Test;
  *      number of words: 0, 1, >=2
  *      number of tweets contain certain words: 0, 1, >=2
  *      if sub-word
+ *      case-insensitive
  *
  */
 public class FilterTest {
@@ -47,7 +49,7 @@ public class FilterTest {
     
     private static final Tweet tweet1 = new Tweet(1, "alyssa", "is it reasonable to talk about rivest so much?", d1);
     private static final Tweet tweet2 = new Tweet(2, "bbitdiddle", "rivest talk in 30 minutes #hype", d2);
-    private static final Tweet tweet3 = new Tweet(3, "alyssa", "rivest talking in 30 minutes #hype", d3);
+    private static final Tweet tweet3 = new Tweet(3, "Alyssa", "rivest talking in 30 minutes #hype", d3);
     
     /* writtenBy */
     /** None tweet */
@@ -77,7 +79,7 @@ public class FilterTest {
 
     /** Multi tweets and multi results */
     @Test
-    public void testWrittenByMultipleTweetsMultipleResults() {
+    public void testWrittenByMultipleTweetsMultipleResultsCase() {
         List<Tweet> writtenBy = Filter.writtenBy(Arrays.asList(tweet1, tweet2, tweet3), "alyssa");
 
         assertEquals("expected double list", 2, writtenBy.size());
@@ -148,8 +150,8 @@ public class FilterTest {
 
     /** Multi tweets, multi words and multi results */
     @Test
-    public void testContainingMultiTweetsMultiWordsMultiResults() {
-        List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2, tweet3), Arrays.asList("talk", "talking"));
+    public void testContainingMultiTweetsMultiWordsMultiResultsCase() {
+        List<Tweet> containing = Filter.containing(Arrays.asList(tweet1, tweet2, tweet3), Arrays.asList("talk", "Talking"));
         
         assertFalse("expected non-empty list", containing.isEmpty());
         assertTrue("expected list to contain tweets", containing.containsAll(Arrays.asList(tweet1, tweet2, tweet3)));

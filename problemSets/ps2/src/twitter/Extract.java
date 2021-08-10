@@ -26,8 +26,11 @@ public class Extract {
      *         every tweet in the list.
      */
     public static Timespan getTimespan(List<Tweet> tweets) {
-        Instant start = tweets.get(0).getTimestamp();
-        Instant end = start;
+        Instant start;
+        Instant end;
+        if (tweets.size() == 0) start = Instant.now();
+        else start = tweets.get(0).getTimestamp();
+        end = start;
         for (Tweet tweet : tweets) {
             Instant current = tweet.getTimestamp();
             if (current.isBefore(start)) start = current;
@@ -62,39 +65,41 @@ public class Extract {
     private static Set<String> getUsers(Tweet tweet) {
         // init temp var
         final String notInitStamp = "$";
-        char prev_char = ' ';
+        char prevChar = ' ';
         final StringBuilder userName = new StringBuilder(notInitStamp);
 
         final Set<String> users = new HashSet<>();
 
-        final String text = tweet.getText();
+        final String text = tweet.getText().toLowerCase();
         for (int i = 0; i < text.length(); i++) {
-            char cur_char = text.charAt(i);
+            char curChar = text.charAt(i);
             // userName start
-            if (cur_char == '@' && prev_char == ' ')
+            if (curChar == '@' && !isValid(prevChar))
                 userName.replace(0, userName.length(), "");
             // single @ character
-            else if (!userName.toString().contains(notInitStamp) && prev_char == '@'
-                && !isValid(cur_char))
+            else if (!userName.toString().contains(notInitStamp) && prevChar == '@'
+                && !isValid(curChar))
                 userName.replace(0, userName.length(), notInitStamp);
             // userName cont.
-            else if (!userName.toString().contains(notInitStamp) && isValid(cur_char))
-                userName.append(cur_char);
+            else if (!userName.toString().contains(notInitStamp) && isValid(curChar))
+                userName.append(curChar);
             // userName end
-            else if (!userName.toString().contains(notInitStamp) && !isValid(cur_char)) {
-                users.add(userName.toString().toLowerCase(Locale.ROOT));
+            else if (!userName.toString().contains(notInitStamp) && !isValid(curChar)) {
+                users.add(userName.toString());
                 userName.replace(0, userName.length(), notInitStamp);
             }
-            prev_char = cur_char;
+            prevChar = curChar;
         }
-        if (!userName.toString().contains(notInitStamp))
-            users.add(userName.toString().toLowerCase(Locale.ROOT));
+        if (!userName.toString().contains(notInitStamp) && userName.length() != 0)
+            users.add(userName.toString());
         return users;
     }
 
-    private static boolean isValid(char cur_char) {
-        return Character.isLetter(cur_char) || Character.isDigit(cur_char)
-                || cur_char == '_';
+    private static boolean isValid(char c) {
+        return  (c >= 'a' && c <= 'z') ||
+                (c >= 'A' && c <= 'Z') ||
+                (c >= '0' && c <= '9') ||
+                 c == '_' || c == '-';
     }
 
     /* Copyright (c) 2007-2016 MIT 6.005 course staff, all rights reserved.

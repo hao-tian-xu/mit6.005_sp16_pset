@@ -13,7 +13,7 @@ import org.junit.Test;
 /**
  ** getTimespan Testing Strategy:
  ** Partition:
- *      List.length(): 1, 2, >=3
+ *      List.length(): 0, 1, 2, >=3
  *      duplicate tweets
  *
  ** getMentionedUsers Testing Strategy:
@@ -40,12 +40,21 @@ public class ExtractTest {
     private static final Instant d3 = Instant.parse("2012-02-17T11:00:00Z");
     private static final Instant d4 = Instant.parse("2012-02-19T11:00:00Z");
 
-    private static final Tweet tweet1 = new Tweet(1, "alyssa", "is it reasonable to talk about rivest so much? @whoami", d1);
+    private static final Tweet tweet1 = new Tweet(1, "alyssa", "is it reasonable to talk about rivest so much? @_whOami,", d1);
     private static final Tweet tweet2 = new Tweet(2, "bbitdiddle", "hi@hotmail.com rivest talk in 30 minutes #hype", d2);
     private static final Tweet tweet3 = new Tweet(3, "stupidity", "@hidldidl hi didl", d3);
-    private static final Tweet tweet4 = new Tweet(3, "stupidity", "@Hidldidl Hi didl", d4);
+    private static final Tweet tweet4 = new Tweet(4, "Stupidity", "@Hidldidl Hi didl", d4);
 
     /* getTimespan Test */
+    /** no tweet */
+    @Test
+    public void testGetTimespanNoTweet() {
+        Timespan timespan = Extract.getTimespan(Arrays.asList());
+
+        assertNotNull(timespan);
+        assertEquals(timespan.getStart(), timespan.getEnd());
+    }
+
     /** single tweet */
     @Test
     public void testGetTimespanOneTweet() {
@@ -97,17 +106,14 @@ public class ExtractTest {
      * duplicate username
      */
     @Test
-    public void testGetMentionedUsersMulti() {
+    public void testGetMentionedUsersMultiCase() {
         Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet1, tweet2, tweet3, tweet4));
+        Set<String> expected = new HashSet<>(Arrays.asList("_whoami", "hidldidl"));
 
-        Set<String> expected = new HashSet<>();
-        Set<String> result = new HashSet<>();
-        expected.add("whoami");
-        expected.add("hidldidl");
+        assertEquals(2, mentionedUsers.size());
         for (String mentionedUser : mentionedUsers) {
-            result.add(mentionedUser.toLowerCase(Locale.ROOT));
+            assertTrue(expected.contains(mentionedUser.toLowerCase()));
         }
-        assertEquals(expected, result);
     }
 
 

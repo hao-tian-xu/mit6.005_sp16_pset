@@ -39,8 +39,9 @@ public class SocialNetwork {
         Map<String, Set<String>> followsGraph = new HashMap<>();
 
         for (Tweet tweet : tweets) {
-            String username = tweet.getAuthor().toLowerCase(Locale.ROOT);
+            String username = tweet.getAuthor().toLowerCase();
             Set<String> mentionedUsers = Extract.getMentionedUsers(Arrays.asList(tweet));
+            mentionedUsers.remove(username);
             if (followsGraph.containsKey(username))
                 followsGraph.get(username).addAll(mentionedUsers);
             else followsGraph.put(username, mentionedUsers);

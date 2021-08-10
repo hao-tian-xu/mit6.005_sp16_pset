@@ -1,7 +1,9 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Experiment {
     public static void main(String[] args) {
-        int[] a = {1, 2, 3};
-        a[2] = 5;
-        System.out.println("experiment " + a[2]);
+        List<String> test = Arrays.asList("1", "2", "3");
+        System.out.println(test);
     }
 }
