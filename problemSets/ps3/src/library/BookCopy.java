@@ -1,16 +1,25 @@
 package library;
 
+import java.util.Locale;
+
 /**
  * BookCopy is a mutable type representing a particular copy of a book that is held in a library's
  * collection.
  */
 public class BookCopy {
 
-    // TODO: rep
+    //  Rep
+    private final Book book;
+    private Condition condition;
     
-    // TODO: rep invariant
-    // TODO: abstraction function
-    // TODO: safety from rep exposure argument
+    //  Rep Invariant
+    //      True
+    //  Abstraction Function
+    //      AF(book, condition) = a copy of book in condition
+    //  Safety from rep exposure argument
+    //      all fields are private
+    //      book is immutable
+    //      condition is mutable, so getCondition() and setCondition() make defensive copies
     
     public static enum Condition {
         GOOD, DAMAGED
@@ -21,26 +30,25 @@ public class BookCopy {
      * @param book the Book of which this is a copy
      */
     public BookCopy(Book book) {
-        throw new RuntimeException("not implemented yet");
+        this.book = book;
+        this.condition = Condition.GOOD;
     }
     
     // assert the rep invariant
-    private void checkRep() {
-        throw new RuntimeException("not implemented yet");
-    }
+    private void checkRep() {}
     
     /**
      * @return the Book of which this is a copy
      */
     public Book getBook() {
-        throw new RuntimeException("not implemented yet");
+        return book;
     }
     
     /**
      * @return the condition of this book copy
      */
     public Condition getCondition() {
-        throw new RuntimeException("not implemented yet");
+        return Condition.valueOf(condition.name());
     }
 
     /**
@@ -48,7 +56,7 @@ public class BookCopy {
      * @param condition the latest condition of the book copy
      */
     public void setCondition(Condition condition) {
-        throw new RuntimeException("not implemented yet");
+        this.condition = Condition.valueOf(condition.name());
     }
     
     /**
@@ -56,7 +64,7 @@ public class BookCopy {
      *    and the words "good" or "damaged" depending on its condition
      */
     public String toString() {
-        throw new RuntimeException("not implemented yet");
+        return book.toString() + ", condition: " + condition.name().toLowerCase(Locale.ROOT);
     }
 
     // uncomment the following methods if you need to implement equals and hashCode,

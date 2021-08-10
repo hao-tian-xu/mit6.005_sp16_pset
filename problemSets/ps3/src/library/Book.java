@@ -1,5 +1,8 @@
 package library;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -10,11 +13,22 @@ import java.util.List;
  */
 public class Book {
 
-    // TODO: rep
-    
-    // TODO: rep invariant
-    // TODO: abstraction function
-    // TODO: safety from rep exposure argument
+    //  Rep
+    final private String title;
+    final private List<String> authors;
+    final private Integer year;
+
+    //  Rep Invariant
+    //      title contains at least one non-space character
+    //      authors is not empty and each element contains at least one non-space character
+    //      year is a non-negative integer
+    //  Abstraction Function
+    //      AF(title, authors, year) = a book with title, written by author,
+    //                                 published at year
+    //  safety from rep exposure argument
+    //      All fields are private
+    //      String title and Integer year are immutable
+    //      List authors is implemented as an immutable list  in Book()
     
     /**
      * Make a Book.
@@ -24,33 +38,46 @@ public class Book {
      * @param year Year when this edition was published in the conventional (Common Era) calendar.  Must be nonnegative. 
      */
     public Book(String title, List<String> authors, int year) {
-        throw new RuntimeException("not implemented yet");
+        this.title = title;
+        this.authors = Collections.unmodifiableList(authors);
+        this.year = year;
+        checkRep();
     }
     
     // assert the rep invariant
     private void checkRep() {
-        throw new RuntimeException("not implemented yet");
+        assert containsAtLeastOneNoneSpaceChar(title);
+        assert authors.size() > 0;
+        for (String author : authors)
+            assert containsAtLeastOneNoneSpaceChar(author);
+        assert year >= 0;
     }
-    
+
+    private boolean containsAtLeastOneNoneSpaceChar(String name) {
+        for (int i = 0; i < name.length(); i++)
+            if (name.charAt(i) != ' ') return true;
+        return false;
+    }
+
     /**
      * @return the title of this book
      */
     public String getTitle() {
-        throw new RuntimeException("not implemented yet");
+        return title;
     }
     
     /**
      * @return the authors of this book
      */
     public List<String> getAuthors() {
-        throw new RuntimeException("not implemented yet");
+        return authors;
     }
 
     /**
      * @return the year that this book was published
      */
     public int getYear() {
-        throw new RuntimeException("not implemented yet");
+        return year;
     }
 
     /**
@@ -58,7 +85,8 @@ public class Book {
      *    authors, and publication year
      */
     public String toString() {
-        throw new RuntimeException("not implemented yet");
+        checkRep();
+        return "title: " + title + ", authors: " + authors + ", publication year: " + year;
     }
 
     // uncomment the following methods if you need to implement equals and hashCode,

@@ -1,9 +1,6 @@
 package library;
 
-import static org.junit.Assert.assertEquals;
-
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,11 +8,19 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameter;
 import org.junit.runners.Parameterized.Parameters;
 
+import static org.junit.Assert.*;
+
 /**
  * Test suite for Library ADT.
  */
 @RunWith(Parameterized.class)
 public class LibraryTest {
+
+    /** assertion enabled */
+    @Test(expected=AssertionError.class)
+    public void testAssertionsEnabled() {
+        assert false; // make sure assertions are enabled with VM argument: -ea
+    }
 
     /*
      * Note: all the tests you write here must be runnable against any
@@ -65,25 +70,102 @@ public class LibraryTest {
     /*
      * Testing strategy
      * ==================
-     * 
-     * TODO: your testing strategy for this ADT should go here.
-     * Make sure you have partitions.
+     *  Library
+     *      number of Book: 0, 1, >=2
+     *      available copies: 1, >=2
+     *
+     *  buy()
+     *      book: existing, new
+     *
+     *  isAvailable()
+     *      copy: available, none, checked out, lost
+     *
+     *  allCopies()
+     *      number of copies: 0, 1, >=2
+     *      copy: available, none, checked out, lost
+     *
+     *  availableCopies()
+     *      number of copies: 0, 1, >=2
+     *      copy condition: available, checked out, lost
+     *
+     *  find()
+     *      query: title, author, other
+     *      number of matches: 0, 1, >=2
+     *      if identical with different year
      */
-    
-    // TODO: put JUnit @Test methods here that you developed from your testing strategy
+
+    /* test data */
+    private final String title1 = "NeverLand";
+    private final String title2 = "MyBook";
+
+    private final String author1 = "Armstrong";
+    private final String author2 = "Louis";
+
+    private final Book book1 = new Book(title1, Arrays.asList(author1, author2), 2022);
+    private final Book book2 = new Book(title2, Arrays.asList(author1), 0);
+    private final Book book3 = new Book(title2, Arrays.asList(author1), 2022);
+
+    private final BookCopy copy = new BookCopy(book1);
+
+    /** empty library */
     @Test
-    public void testExampleTest() {
+    public void testLibraryEmpty() {
         Library library = makeLibrary();
-        Book book = new Book("This Test Is Just An Example", Arrays.asList("You Should", "Replace It", "With Your Own Tests"), 1990);
-        assertEquals(Collections.emptySet(), library.availableCopies(book));
+
+        assertEquals(Collections.emptySet(), library.availableCopies(book1));
+        assertEquals(Collections.emptySet(), library.allCopies(book2));
+        assertFalse(library.isAvailable(copy));
+        assertEquals(Arrays.asList(), library.find(title1));
     }
-    
-    
-    @Test(expected=AssertionError.class)
-    public void testAssertionsEnabled() {
-        assert false; // make sure assertions are enabled with VM argument: -ea
+
+    /** library buy one copy of a new book, however, lost */
+    @Test
+    public void testLibrarySingleBookSingleCopyLost() {
+        Library library = makeLibrary();
+        BookCopy copy1 = library.buy(book1);
+
+        assertEquals(1, library.availableCopies(book1).size());
+
+        library.lose(copy1);
+
+        assertEquals(Collections.emptySet(), library.availableCopies(book1));
+        assertEquals(Collections.emptySet(), library.allCopies(book1));
+        assertFalse(library.isAvailable(copy1));
+        assertEquals(Arrays.asList(), library.find(title1));
     }
-    
+
+    /** library buy multi copies of multi books, some checked out, some checked in,
+        find author and find title
+        find matches: 1, 2 */
+    @Test
+    public void testLibraryMultiBooksMultiCopiesCheckoutCheckin() {
+        Library library = makeLibrary();
+        BookCopy copy1_1 = library.buy(book1);
+        BookCopy copy1_2 = library.buy(book1);
+        BookCopy copy2 = library.buy(book2);
+
+        library.checkout(copy1_1);
+        library.checkout(copy2);
+        library.checkin(copy2);
+
+        assertEquals(new HashSet<>(Arrays.asList(copy1_1, copy1_2)), library.allCopies(book1));
+        assertEquals(new HashSet<>(Arrays.asList(copy1_2)), library.availableCopies(book1));
+        assertEquals(new HashSet<>(Arrays.asList(copy2)), library.allCopies(book2));
+        assertEquals(Collections.emptySet(), library.availableCopies(book2));
+
+        assertTrue(library.find(author1).containsAll(Arrays.asList(book1, book2)));
+        assertEquals(Arrays.asList(book1), library.find(title1));
+    }
+
+    /** library two identical books with different publication year */
+    @Test
+    public void testLibraryFindIdentical() {
+        Library library = makeLibrary();
+        library.buy(book2);
+        library.buy(book3);
+
+        assertEquals(Arrays.asList(book3, book2), library.find(title2));
+    }
 
     /* Copyright (c) 2016 MIT 6.005 course staff, all rights reserved.
      * Redistribution of original or derived work requires explicit permission.
