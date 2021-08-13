@@ -1,6 +1,7 @@
 package expressivo;
 
 import java.lang.Number;
+import java.util.Map;
 
 /** Num as Expression which represents a non-negative number */
 class Num implements Expression {
@@ -24,8 +25,19 @@ class Num implements Expression {
     }
 
     @Override
+    public Expression differentiate(Variable variable) {
+        return new Num(0);
+    }
+
+    @Override
+    public Expression simplify(Map<String,Double> environment) {
+        return this;
+    }
+
+    @Override
     public String toString() {
-        return n.toString();
+        if (n.longValue() == n.doubleValue()) return Long.toString(n.longValue());
+        return String.format("%f", n.doubleValue());
     }
 
     @Override
@@ -34,15 +46,15 @@ class Num implements Expression {
     }
 
     private boolean sameValue(Num that) {
-        return this.value().doubleValue() == that.value().doubleValue();
+        return this.value() == that.value();
     }
 
-    private Number value() {
-        return n;
+    public double value() {
+        return n.doubleValue();
     }
 
     @Override
     public int hashCode() {
-        return Double.hashCode(value().doubleValue());
+        return Double.hashCode(value());
     }
 }

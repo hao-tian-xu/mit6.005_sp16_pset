@@ -23,7 +23,7 @@ public class ExpressionTest {
 
     @Test
     public void testExpression() {
-        Times times = new Times(new Plus(new Num(1), new Variable("x")), new Num(2.2));
-        assertEquals("(1+x)*2.2", times.toString());
+        Times times = new Times(new Plus(new Num(1), new Variable("x")), new Num(9007199254740992L));
+        assertEquals("(1+x)*9007199254740992", times.toString());
     }
 }
