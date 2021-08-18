@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="Haotians-MBP" name="autograder.DigsByDifferentUserTest" skipped="0" tests="1" time="0.204" timestamp="2021-08-18T02:56:39">
+  <properties>
+    <property name="java.vendor" value="Amazon.com Inc." />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="build.sysclasspath" value="ignore" />
+    <property name="os.name" value="Mac OS X" />
+    <property name="sun.boot.class.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/resources.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/rt.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/sunrsasign.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jsse.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jce.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/charsets.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/jfr.jar:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/classes" />
+    <property name="final.grading" value="true" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant" />
+    <property name="java.runtime.version" value="1.8.0_302-b08" />
+    <property name="user.name" value="tian" />
+    <property name="ant.build.javac.target" value="1.8" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib" />
+    <property name="grader.report.file" value="my-grader-report.xml" />
+    <property name="ant.project.default-target" value="all" />
+    <property name="java.version" value="1.8.0_302" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="java.class.version" value="52.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="ant.file" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/grader.xml" />
+    <property name="os.version" value="11.5.2" />
+    <property name="final.grader.jar" value="ps2-final-grader.jar" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="25.302-b08" />
+    <property name="ant.library.dir" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib" />
+    <property name="java.awt.printerjob" value="sun.lwawt.macosx.CPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeBig" />
+    <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit" />
+    <property name="user.home" value="/Users/tian" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="which.tests.ran" value="BETA + FINAL" />
+    <property name="java.library.path" value="/Users/tian/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:." />
+    <property name="java.vendor.url" value="https://aws.amazon.com/corretto/" />
+    <property name="java.vm.vendor" value="Amazon.com Inc." />
+    <property name="gopherProxySet" value="false" />
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
+    <property name="beta.grader.jar" value="ps2-beta-grader.jar" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner autograder.DigsByDifferentUserTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=false outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/.grader/TEST-autograder.DigsByDifferentUserTest.xml crashfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/.grader/junitvmwatcher2351459033435164266.properties propsfile=/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/.grader/junit8655158911694385367.properties" />
+    <property name="java.class.path" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/lib/junit-4.12.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/lib/hamcrest-core-1.3.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/lib/parserlib.jar:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/.grader/bin-tests-final:/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5/.grader/bin-student:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-launcher.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit.jar:/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant-junit4.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.10.5 compiled on July 10 2018" />
+    <property name="project.name" value="ps2-minesweeper" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.8" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="didit.desc" value="Running our final tests against your implementation" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/var/folders/cl/q7f35lm10fgg9zlqg6ltn72w0000gn/T/" />
+    <property name="java.vendor.url.bug" value="https://github.com/corretto/corretto-8/issues/" />
+    <property name="os.arch" value="x86_64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/Users/tian/Library/Java/Extensions:/Users/tian/Library/Java/JavaVirtualMachines/corretto-1.8.0_302/Contents/Home/jre/lib/ext:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java" />
+    <property name="user.dir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="zipfile" value="my-submission.zip" />
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM" />
+    <property name="problem.set" value="ps2" />
+    <property name="basedir" value="/Users/tian/Desktop/mit6.005_sp16/problemSets/ps5" />
+    <property name="ant.java.version" value="1.8" />
+    <property name="ant.core.lib" value="/Applications/IntelliJ IDEA.app/Contents/lib/ant/lib/ant.jar" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="java.specification.version" value="1.8" />
+    <property name="grader.dir" value=".grader" />
+    <property name="ant.project.invoked-targets" value="all" />
+  </properties>
+  <testcase classname="autograder.DigsByDifferentUserTest" name="testDigsByDifferentUsers" time="0.133" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

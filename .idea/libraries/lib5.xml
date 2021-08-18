@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="lib5">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/problemSets/ps5/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/problemSets/ps5/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/problemSets/ps5/lib/parserlib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/problemSets/ps5/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/problemSets/ps5/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>

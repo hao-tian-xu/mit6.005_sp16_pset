@@ -25,11 +25,11 @@ public class MinesweeperServer {
     /** Default square board size. */
     private static final int DEFAULT_SIZE = 10;
     /** Messages */
-    private static final String HELP_MESSAGE = "not implemented...\n";
+    private static final String HELP_MESSAGE = "not implemented...";
     private static final String BYE_MESSAGE = "client bye";
-    private static final String BOOM_MESSAGE = "Boom!\n";
+    private static final String BOOM_MESSAGE = "BOOM!";
     private static final String HELLO_MESSAGE = "Welcome to Minesweeper. Players: %d including you. " +
-                                                "Board: %d columns by %d rows. Type 'help' for help.\n";
+                                                "Board: %d columns by %d rows. Type 'help' for help.";
 
     // rep
     /** Board */
@@ -39,7 +39,8 @@ public class MinesweeperServer {
     /** True if the server should *not* disconnect a client after a BOOM message. */
     private final boolean debug;
     /** Number of clients */
-    private int clients = 0;
+    private int clientsNumber = 0;
+    private final Object clientLock = new Object();
 
     // TODO: Abstraction function, rep invariant, rep exposure
 
@@ -72,8 +73,10 @@ public class MinesweeperServer {
      * @throws IOException if a network error occurs
      */
     public static void runMinesweeperServer(boolean debug, Optional<File> file, int sizeX, int sizeY, int port) throws IOException {
-        final Board board = file.map(Board::new).orElseGet(() -> new Board(sizeX, sizeY));
-        MinesweeperServer server = new MinesweeperServer(board, port, debug);
+        final Board _board;
+        if (file.isPresent()) _board = new Board(file.get());
+        else _board = new Board(sizeX, sizeY);
+        MinesweeperServer server = new MinesweeperServer(_board, port, debug);
         server.serve();
     }
 
@@ -87,8 +90,9 @@ public class MinesweeperServer {
     public void serve() throws IOException {
         while (true) {
             // block until a client connects and setup socket
-            try (Socket socket = serverSocket.accept()) {
-                // handle the client
+            Socket socket = serverSocket.accept();
+            // handle the client
+            try {
                 new Thread(() -> {
                     try {
                         handleConnection(socket);
@@ -96,6 +100,8 @@ public class MinesweeperServer {
                         e.printStackTrace();
                     }
                 }).start();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
@@ -108,28 +114,31 @@ public class MinesweeperServer {
      */
     private void handleConnection(Socket socket) throws IOException {
         // setup connection and handle request
-        try (final BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-             final PrintWriter out = new PrintWriter(socket.getOutputStream(), true))
-        {
-            clients++;
-            out.println(String.format(HELLO_MESSAGE, clients, board.size().get(0), board.size().get(1)));
+        final BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+        final PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+
+        synchronized (clientLock) {
+            clientsNumber++;
+            out.println(String.format(HELLO_MESSAGE, clientsNumber, board.size()[0], board.size()[1]));
+        }
+
+        try {
             while (true) {
                 final String line = in.readLine();
-                if (line == null) break;
+                if (line == null || line.equals("\n")) break;
                 String output = handleRequest(line);
                 if (output.equals(BYE_MESSAGE)) break;
                 out.println(output);
+                out.flush();
                 if (!debug && output.equals(BOOM_MESSAGE)) break;
             }
         }   catch (IOException e) {
             e.printStackTrace();
         }
-        // close connection
-        try {
-            socket.close();
-            clients--;
-        } catch (IOException e) {
-            e.printStackTrace();
+
+        socket.close();
+        synchronized (clientLock) {
+            clientsNumber--;
         }
     }
 
@@ -142,9 +151,8 @@ public class MinesweeperServer {
     private String handleRequest(String input) {
         String regex = "(look)|(help)|(bye)|"
                      + "(dig -?\\d+ -?\\d+)|(flag -?\\d+ -?\\d+)|(deflag -?\\d+ -?\\d+)";
-        if ( ! input.matches(regex)) {
-            // invalid input
-            throw new UnsupportedOperationException();
+        if (!input.matches(regex)) {
+            return BYE_MESSAGE;
         }
         String[] tokens = input.split(" ");
         switch (tokens[0]) {
@@ -164,11 +172,13 @@ public class MinesweeperServer {
                     case "dig":
                         // 'dig x y' request
                         if (!board.dig(x, y)) return BOOM_MESSAGE;
-                        board.clear(x, y);
+                        break;
                     case "flag":
                         board.flag(x, y);
+                        break;
                     case "deflag":
                         board.deflag(x, y);
+                        break;
                 }
                 return board.toString();
         }
@@ -226,7 +236,7 @@ public class MinesweeperServer {
         int sizeY = DEFAULT_SIZE;
         Optional<File> file = Optional.empty();
 
-        Queue<String> arguments = new LinkedList<String>(Arrays.asList(args));
+        Queue<String> arguments = new LinkedList<>(Arrays.asList(args));
         try {
             while ( ! arguments.isEmpty()) {
                 String flag = arguments.remove();
