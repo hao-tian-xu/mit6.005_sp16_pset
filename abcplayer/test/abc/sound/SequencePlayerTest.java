@@ -10,10 +10,7 @@ import java.util.concurrent.TimeUnit;
 
 public class SequencePlayerTest {
 
-    // TODO: warmup #2
-
-    @Test
-    public void test1() {
+    public static SequencePlayer player1() {
         int startTick = 0;
         int numTicks = 0;
         try {
@@ -69,12 +66,24 @@ public class SequencePlayerTest {
             startTick += numTicks; numTicks = 24;
             player.addNote(new Pitch('C').toMidiNote(), startTick, numTicks);
 
+            return player;
+        } catch (MidiUnavailableException | InvalidMidiDataException mue) {
+            mue.printStackTrace();
+            throw new IllegalArgumentException();
+        }
+    }
+
+    @Test
+    public void test1() {
+        try {
+            SequencePlayer player = player1();
+
             System.out.println(player);
             player.play();
 
             TimeUnit.SECONDS.sleep(8);
 
-        } catch (MidiUnavailableException | InvalidMidiDataException | InterruptedException mue) {
+        } catch (MidiUnavailableException | InterruptedException mue) {
             mue.printStackTrace();
         }
     }
@@ -93,12 +102,10 @@ public class SequencePlayerTest {
             player.addNote(new Pitch('F').toMidiNote(), startTick, numTicks);
             player.addNote(new Pitch('E').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 6;
-            player.addRest(startTick, numTicks);
             startTick += numTicks; numTicks = 6;
             player.addNote(new Pitch('F').toMidiNote(), startTick, numTicks);
             player.addNote(new Pitch('E').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 6;
-            player.addRest(startTick, numTicks);
             startTick += numTicks; numTicks = 6;
             player.addNote(new Pitch('F').toMidiNote(), startTick, numTicks);
             player.addNote(new Pitch('C').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
@@ -111,16 +118,13 @@ public class SequencePlayerTest {
             player.addNote(new Pitch('B').toMidiNote(), startTick, numTicks);
             player.addNote(new Pitch('G').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 12;
-            player.addRest(startTick, numTicks);
             startTick += numTicks; numTicks = 12;
             player.addNote(new Pitch('G').toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 12;
-            player.addRest(startTick, numTicks);
             // 3rd
             startTick += numTicks; numTicks = 18;
             player.addNote(new Pitch('C').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 12;
-            player.addRest(startTick, numTicks);
             startTick += numTicks; numTicks = 12;
             player.addNote(new Pitch('E').toMidiNote(), startTick, numTicks);
             // 4th
@@ -149,7 +153,6 @@ public class SequencePlayerTest {
             player.addNote(new Pitch('G').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             // 6th
             startTick += numTicks; numTicks = 6;
-            player.addRest(startTick, numTicks);
             startTick += numTicks; numTicks = 12;
             player.addNote(new Pitch('E').transpose(Pitch.OCTAVE).toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 6;
@@ -159,7 +162,6 @@ public class SequencePlayerTest {
             startTick += numTicks; numTicks = 9;
             player.addNote(new Pitch('B').toMidiNote(), startTick, numTicks);
             startTick += numTicks; numTicks = 9;
-            player.addRest(startTick, numTicks);
 
             System.out.println(player);
             player.play();

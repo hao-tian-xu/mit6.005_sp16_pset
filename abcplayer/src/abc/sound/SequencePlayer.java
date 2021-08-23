@@ -30,6 +30,7 @@ public class SequencePlayer {
     private final Sequencer sequencer;
     private final Track track;
     private final int beatsPerMinute;
+    private final int ticksPerBeat;
 
     /*
      * Rep invariant:
@@ -48,17 +49,16 @@ public class SequencePlayer {
      * 
      * @param beatsPerMinute the number of beats per minute
      * @param ticksPerBeat the number of ticks per beat; every note plays for an integer number of ticks
-     * @throws MidiUnavailableException
-     * @throws InvalidMidiDataException
      */
     public SequencePlayer(int beatsPerMinute, int ticksPerBeat)
             throws MidiUnavailableException, InvalidMidiDataException {
         this.sequencer = MidiSystem.getSequencer();
 
-        // create a sequence object with with tempo-based timing, where
+        // create a sequence object with tempo-based timing, where
         // the resolution of the time step is based on ticks per beat
         Sequence sequence = new Sequence(Sequence.PPQ, ticksPerBeat);
         this.beatsPerMinute = beatsPerMinute;
+        this.ticksPerBeat = ticksPerBeat;
 
         // create an empty track; notes will be added to this track
         this.track = sequence.createTrack();
@@ -88,16 +88,15 @@ public class SequencePlayer {
         }
     }
 
-    // TODO temporary + delete
-    public void addRest(int startTick, int numTicks) {
-        try {
-            ShortMessage msg1 = new ShortMessage(ShortMessage.NOTE_ON, DEFAULT_CHANNEL, new Pitch('C').toMidiNote(), 0);
-            this.track.add(new MidiEvent(msg1, startTick));
-            ShortMessage msg2 = new ShortMessage(ShortMessage.NOTE_OFF, DEFAULT_CHANNEL, new Pitch('C').toMidiNote(), 0);
-            this.track.add(new MidiEvent(msg2, startTick+numTicks));
-        } catch (InvalidMidiDataException imde) {
-            throw new RuntimeException(imde);
-        }
+    /**
+     * Schedule a note to be played starting at startBeat for the duration of numBeats.
+     *
+     * @param note the pitch value for the note to be played; must be a valid note
+     * @param startBeat the starting beat; must be >= 0
+     * @param numBeats the number of beats for which this note should be played; must be >= 0
+     */
+    public void addNote(int note, double startBeat, double numBeats) {
+        this.addNote(note, (int) Math.round(startBeat*ticksPerBeat), (int) Math.round(numBeats*ticksPerBeat));
     }
 
     /**
