@@ -9,9 +9,21 @@ class Note implements MusicPiece {
     private final double numBeats;
     private final Pitch pitch;
 
-    public Note(double numBeats, Pitch pitch) {
+    // Abstract function
+    //      AF(numBeats, pitch) = a note of pitch pitch lasting numBeats beats
+    // Rep variant
+    //      numBeats > 0
+    // Safety from rep exposure
+    //      all fields are private, final, and immutable
+
+    Note(double numBeats, Pitch pitch) {
         this.numBeats = numBeats;
         this.pitch = pitch;
+        checkRep();
+    }
+
+    private void checkRep() {
+        assert numBeats > 0;
     }
 
     @Override

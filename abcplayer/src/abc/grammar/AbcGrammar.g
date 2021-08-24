@@ -1,25 +1,9 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ////////////////////;
 // abc grammar;
 music ::= header body_element;
 
 ////////////////////;
-// Header;
+// header;
 @skip WHITESPACE{
     header ::= field_number field_title other_fields* field_key;
     field_number ::= "X:" NUMBER end_of_line;
@@ -45,7 +29,7 @@ tempo ::= meter_fraction "=" NUMBER;
 body_element ::= (TEXT | NEWLINE | comment)+;
 
 ////////////////////;
-// Multi_voice;
+// multi_voice;
 @skip WHITESPACE{
     multi_voice ::= part+;
     part ::= (comment NEWLINE) | ("V:" TEXT NEWLINE voice_part);
@@ -55,7 +39,7 @@ body_element ::= (TEXT | NEWLINE | comment)+;
 }
 
 ////////////////////;
-// Voice ;
+// voice ;
 @skip WHITESPACE_ALL{
     voice ::= "|"? section+;
     section ::= repeat_phrase | phrase;
@@ -94,12 +78,12 @@ tuplet_element ::= tuplet_spec note_element+;
 tuplet_spec ::= "(" [234];
 
 ////////////////////;
-// General ;
+// general ;
 base_note ::= "C" | "D" | "E" | "F" | "G" | "A" | "B" | "c" | "d" | "e" | "f" | "g" | "a" | "b";
 note_length_strict ::= NUMBER "/" NUMBER;
 
 ////////////////////;
-// Aux ;
+// aux ;
 end_of_line ::= comment? NEWLINE;
 comment ::= "%" TEXT?;
 

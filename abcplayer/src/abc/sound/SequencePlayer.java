@@ -105,7 +105,7 @@ public class SequencePlayer {
      * @param eventType valid MidiMessage type in ShortMessage
      * @param note valid pitch value
      * @param tick tick >= 0
-     * @throws InvalidMidiDataException
+     * @throws InvalidMidiDataException exception
      */
     private void addMidiNoteEvent(int eventType, int note, int tick) throws InvalidMidiDataException {
         ShortMessage msg = new ShortMessage(eventType, DEFAULT_CHANNEL, note, DEFAULT_VELOCITY);
@@ -125,7 +125,7 @@ public class SequencePlayer {
             public void meta(MetaMessage meta) {
                 if (meta.getType() == META_END_OF_TRACK) {
                     // allow the sequencer to finish
-                    try { Thread.sleep(1000); } catch (InterruptedException ie) { }
+                    try { Thread.sleep(1000); } catch (InterruptedException ignored) { }
                     // stop & close the sequencer
                     sequencer.stop();
                     sequencer.close();
@@ -232,10 +232,8 @@ public class SequencePlayer {
              */
             // System.exit(0);
 
-        } catch (MidiUnavailableException mue) {
-            mue.printStackTrace();
-        } catch (InvalidMidiDataException imde) {
-            imde.printStackTrace();
+        } catch (MidiUnavailableException | InvalidMidiDataException e) {
+            e.printStackTrace();
         }
     }
 }

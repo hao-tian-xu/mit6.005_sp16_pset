@@ -5,7 +5,6 @@ import abc.sound.SequencePlayer;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -18,7 +17,6 @@ public class Main {
     private static final int TICKS_PER_BEAT = 12;
 
     public static void main(String[] args) throws Exception {
-        // TODO PRIORITY 1: fur_elise.abc nth_repeat bug
         final BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         while (true) {
             System.out.println("name of file to play >");
@@ -31,7 +29,6 @@ public class Main {
             if (f.exists()) play(path);
             else System.out.println("file doesn't exist");
         }
-        // CALL play() HERE USING ARGS
     }
 
     /**

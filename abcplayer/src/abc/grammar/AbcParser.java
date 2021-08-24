@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 
 public class AbcParser {
 
-    // todo opt: header map DT
+    // opt: header map DT
     /*final String NUMBER = "X";
     final String TITLE = "T";
     final String COMPOSER = "C";
@@ -49,9 +49,14 @@ public class AbcParser {
     //  safety from rep exposure argument
     //      All fields are private, final and immutable
 
-    /*****************
-     ** MAIN PARSER
-     *****************/
+    //////////////////
+    // MAIN PARSER
+    //////////////////
+    /**
+     * Parse notes to Music instance
+     * @param notes An ABC-format notes
+     * @return A Music instance parsed from notes
+     */
     public Music parse(String notes) {
         try {
             // parse music
@@ -85,9 +90,9 @@ public class AbcParser {
         }
     }
 
-    /*****************
-     ** HELPERS
-     *****************/
+    //////////////////
+    // HELPERS
+    //////////////////
     void parseHeader(ParseTree<AbcGrammar> tree) {
         switch (tree.name()) {
             case HEADER:
@@ -141,15 +146,34 @@ public class AbcParser {
         switch (tree.name()) {
             // parse bar_notes to deal with accidentals
             case BAR_NOTES:
-                ParseTree<AbcGrammar> bar = processAccidental(tree);
-                return parseBar(bar);
+                try {
+                    return parseBar(barParser.parse(processAccidental(tree.text())));
+                } catch (UnableToParseException e) {
+                    e.printStackTrace();
+                    throw new IllegalArgumentException("invalid expression");
+                }
+            // process repeat
+            case REPEAT:
+                List<ParseTree<AbcGrammar>> repeated = Arrays.asList(
+                        tree.children().get(0), tree.children().get(1),
+                        tree.children().get(0), tree.children().get(1)
+                );
+                // Concat all parts
+                return repeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
+            case NTH_REPEAT:
+                List<ParseTree<AbcGrammar>> nthRepeated = Arrays.asList(
+                        tree.children().get(0), tree.children().get(1),
+                        tree.children().get(0), tree.children().get(2)
+                );
+                // Concat all parts
+                return nthRepeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
+            // repeat
+            case REPEAT_PHRASE: case FIRST_REPEAT: case SECOND_REPEAT:
             // voice
             case VOICE: case SECTION:
-                // repeat
-            case REPEAT_PHRASE: case REPEAT: case NTH_REPEAT: case FIRST_REPEAT: case SECOND_REPEAT:
-                // phrase
+            // phrase
             case PHRASE:
-                // bar
+            // bar
             case BAR_ELEMENT:
                 // Concat all children
                 return tree.children().stream().map(this::parseVoice).reduce(MusicPiece::make).get();
@@ -158,24 +182,19 @@ public class AbcParser {
         }
     }
 
-    ParseTree<AbcGrammar> processAccidental(ParseTree<AbcGrammar> tree) {
-        // Todo Rev: multi accidentals
-        String barNotes = tree.text();
-        try {
-            final String regex = "(?<accidental>([\\^_]{1,2}|=)(?<note>[a-gA-G][,']*))(?<rest>[^\\r\\n]*)";
-            final Matcher matcher = Pattern.compile(regex).matcher(barNotes);
-            if (matcher.find()) {
-                final String regex_subst = "(?<![\\^_=])" + matcher.group("note");
-                final String replace = matcher.group("accidental")
-                        + matcher.group("rest").replaceAll(regex_subst, matcher.group("accidental"));
-                barNotes = matcher.replaceAll(replace);
-            }
-
-            return barParser.parse(barNotes);
-        } catch (UnableToParseException e) {
-            e.printStackTrace();
-            throw new IllegalArgumentException("invalid expression");
+    String processAccidental(String barNotes) {
+        final String regex = "(?<accidental>([\\^_]{1,2}|=)(?<note>[a-gA-G][,']*))(?<rest>[^\\r\\n]*)";
+        final Matcher matcher = Pattern.compile(regex).matcher(barNotes);
+        if (matcher.find()) {
+            String rest = processAccidental(matcher.group("rest"));
+            String regex_subst = "(?<![\\^_=])" + matcher.group("note");
+            String replace = matcher.group("accidental")
+                    + rest.replaceAll(regex_subst, matcher.group("accidental"));
+            barNotes = matcher.replaceAll(replace);
         }
+//            System.out.println(barNotes);
+//            return barParser.parse(barNotes);
+        return barNotes;
     }
 
     MusicPiece parseBar(ParseTree<AbcGrammar> tree) {
@@ -287,9 +306,9 @@ public class AbcParser {
         }
     }
 
-    /*****************
-     ** HEADER
-     *****************/
+    //////////////////
+    // HEADER
+    //////////////////
     void headerProcess() {
         // Default setting
         // When the field M is omitted, the default meter is 4/4.

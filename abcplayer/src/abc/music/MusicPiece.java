@@ -6,15 +6,18 @@ import abc.sound.SequencePlayer;
 import java.util.List;
 
 /**
- * immutable MusicPiece data type
+ * An immutable data type representing a music piece of:
+ *      Concat (two consecutive music pieces),
+ *      Chord (several music pieces to play at same time),
+ *      Note, and Rest
  */
 public interface MusicPiece {
 
     // Datatype Definition:
-    // Music = Note(numBeats:double, pitch: Pitch)
-    //       + Rest(numBeats:double)
-    //       + Chord(notes: List<MusicPiece>)
-    //       + Concat(m1:MusicPiece, m2:MusicPiece)
+    //    Music = Note(numBeats:double, pitch: Pitch)
+    //          + Rest(numBeats:double)
+    //          + Chord(notes: List<MusicPiece>)
+    //          + Concat(m1:MusicPiece, m2:MusicPiece)
 
     /**
      * MusicPiece factory
@@ -82,7 +85,7 @@ public interface MusicPiece {
      */
     MusicPiece factorTuplet(double tupletFactor);
 
+    // opt: update numBeats fields to have better toString representation
     @Override
-    // todo opt: update numBeats fields to have better toString representation
     String toString();
 }

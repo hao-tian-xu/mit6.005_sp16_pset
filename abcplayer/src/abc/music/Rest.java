@@ -7,11 +7,20 @@ class Rest implements MusicPiece {
     //rep
     private final double numBeats;
 
-    //  safety from rep exposure argument
+    // Abstract Function
+    //      AF(numBeats) = a rest lasting numBeats beats
+    // Rep invariant
+    //      numBeats > 0;
+    // Safety from rep exposure
     //      All fields are private, final and immutable
 
-    public Rest(double numBeats) {
+    Rest(double numBeats) {
         this.numBeats = numBeats;
+        checkRep();
+    }
+
+    private void checkRep() {
+        assert numBeats > 0;
     }
 
     @Override

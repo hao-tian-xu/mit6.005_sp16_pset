@@ -8,10 +8,14 @@ import java.util.stream.Collectors;
 
 class Chord implements MusicPiece {
 
-    // rep
+    // Rep
     private final List<MusicPiece> notes;
 
-    //  safety from rep exposure argument
+    // Abstract function
+    //      AF(notes) = chord of notes
+    // Rep invariant
+    //      true
+    // Safety from rep exposure
     //      All fields are private and final
     //      notes is a mutable List, so constructor makes a defensive copy from parameter
 

@@ -8,10 +8,14 @@ class Concat implements MusicPiece {
     private final MusicPiece m1;
     private final MusicPiece m2;
 
-    //  safety from rep exposure argument
+    // Abstract function
+    //      AF(m1, m2) = a music piece composed of two consecutive music pieces m1 and m2
+    // Rep invariant
+    //      true
+    // Safety from rep exposure
     //      All fields are private, final and immutable
 
-    public Concat(MusicPiece m1, MusicPiece m2) {
+    Concat(MusicPiece m1, MusicPiece m2) {
         this.m1 = m1;
         this.m2 = m2;
     }

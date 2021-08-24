@@ -14,13 +14,16 @@ import javax.sound.midi.MidiUnavailableException;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 
 public class AbcParserTest {
 
-    // init test data
+    // init data
     final static AbcParser abcParser = new AbcParser();
 
     final String file1 = "sample_abc/piece1.abc";
@@ -42,24 +45,15 @@ public class AbcParserTest {
     public AbcParserTest() throws IOException {}
 
     @Test
-    public void testParse1() throws MidiUnavailableException, InvalidMidiDataException, IOException {
-        String musicSheet = new String(Files.readAllBytes(Paths.get(file1)));
-        Music music = abcParser.parse(musicSheet);
-        SequencePlayer player = new SequencePlayer(music.beatsPerMinute(), 12);
-        music.addVoices(player, 0);
-        SequencePlayer expected = SequencePlayerTest.player1();
-        assertEquals(expected.toString(), player.toString());
-    }
-
-    @Test
-    public void testParse2() throws MidiUnavailableException, InvalidMidiDataException, IOException {
-        String musicSheet = new String(Files.readAllBytes(Paths.get(file3)));
-        Music music = abcParser.parse(musicSheet);
-        SequencePlayer player = new SequencePlayer(music.beatsPerMinute(), 12);
-        music.addVoices(player, 0);
-        player.play();
-        /*SequencePlayer expected = SequencePlayerTest.player1();
-        assertEquals(expected.toString(), player.toString());*/
+    public void testParse() throws IOException, MidiUnavailableException, InvalidMidiDataException {
+        File folder = new File("sample_abc");
+        for (File file : Objects.requireNonNull(folder.listFiles())) {
+            final AbcParser abcParser = new AbcParser();
+            String musicSheet = new String(Files.readAllBytes(file.toPath()));
+            Music music = abcParser.parse(musicSheet);
+            SequencePlayer player = new SequencePlayer(music.beatsPerMinute(), 12);
+            music.addVoices(player, 0);
+        }
     }
 
     @Test
@@ -71,18 +65,19 @@ public class AbcParserTest {
     public void testParseMultiVoice1() {
         abcParser.parseHeader(musicTree3.children().get(0));
         abcParser.headerProcess();
-        System.out.println(abcParser.parseMultiVoice(makeTree(AbcGrammar.MULTI_VOICE, musicTree3.children().get(1).text())));
+        abcParser.parseMultiVoice(makeTree(AbcGrammar.MULTI_VOICE, musicTree3.children().get(1).text()));
     }
 
     @Test
     public void testParseMultiVoice2() {
         abcParser.parseHeader(musicTree4.children().get(0));
         abcParser.headerProcess();
-        System.out.println(abcParser.parseMultiVoice(makeTree(AbcGrammar.MULTI_VOICE, musicTree4.children().get(1).text())).get(0));
+        abcParser.parseMultiVoice(makeTree(AbcGrammar.MULTI_VOICE, musicTree4.children().get(1).text())).get(0);
     }
 
     @Test
     public void testParseVoice1() {
+        final AbcParser abcParser = new AbcParser();
         String result = abcParser.parseVoice(makeTree(AbcGrammar.VOICE, musicTree1.children().get(1).text())).toString();
         String expected = "C(1.000), C(1.000), C(0.750), D(0.250), E(1.000), E(0.750), D(0.250), E(0.750), F(0.250), G(2.000), C'(0.333), C'(0.333), C'(0.333), G(0.333), G(0.333), G(0.333), E(0.333), E(0.333), E(0.333), C(0.333), C(0.333), C(0.333), G(0.750), F(0.250), E(0.750), D(0.250), C(2.000)";
         assertEquals(expected, result);
@@ -90,15 +85,22 @@ public class AbcParserTest {
 
     @Test
     public void testParseVoice2() {
+        final AbcParser abcParser = new AbcParser();
         String result = abcParser.parseVoice(makeTree(AbcGrammar.VOICE, musicTree2.children().get(1).text())).toString();
         String expected = "Chord(^F(0.500) E'(0.500)), Chord(^F(0.500) E'(0.500)), Rest(0.500), Chord(^F(0.500) E'(0.500)), Rest(0.500), Chord(^F(0.500) C'(0.500)), Chord(^F(1.000) E'(1.000)), Chord(G(1.000) B(1.000) G'(1.000)), Rest(1.000), G(1.000), Rest(1.000), C'(1.500), G(0.500), Rest(1.000), E(1.000), E(0.500), A(1.000), B(1.000), ^A(0.500), A(1.000), G(0.667), E'(0.667), G'(0.667), A'(1.000), F'(0.500), G'(0.500), Rest(0.500), E'(1.000), C'(0.500), D'(0.500), B(0.750), Rest(0.750)";
         assertEquals(expected, result);
     }
 
     @Test
-    public void testProcessAccidental() {
-        String result = abcParser.processAccidental(makeTree(AbcGrammar.BAR_NOTES, "c d ^c' =b, c' D")).text();
-        assertEquals("c d ^c' =b, ^c' D", result);
+    public void testProcessAccidental1() {
+        String result = abcParser.processAccidental("c __d ^c'' =b, c'' d");
+        assertEquals("c __d ^c'' =b, ^c'' __d", result);
+    }
+
+    @Test
+    public void testProcessAccidental2() {
+        String result = abcParser.processAccidental("[^F/2e/2] [F/2e/2] z/2 [F/2e/2] z/2 [F/2c/2] [Fe]");
+        assertEquals("[^F/2e/2] [^F/2e/2] z/2 [^F/2e/2] z/2 [^F/2c/2] [^Fe]", result);
     }
 
     @Test
@@ -158,10 +160,6 @@ public class AbcParserTest {
         }
         throw new AssertionError("unable to make ParseTree");
     }
-
-
-
-
 
 
 

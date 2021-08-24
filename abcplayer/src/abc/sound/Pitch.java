@@ -116,7 +116,7 @@ public class Pitch {
 
     /**
      * @return this pitch in abc music notation
-     * @see http://www.walshaw.plus.com/abc/examples/
+     * @see <a href="http://www.walshaw.plus.com/abc/examples/">...</a>
      */
     @Override
     public String toString() {
