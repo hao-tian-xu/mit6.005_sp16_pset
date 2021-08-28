@@ -20,6 +20,14 @@ class Concat implements MusicPiece {
         this.m2 = m2;
     }
 
+    MusicPiece m1() {
+        return m1;
+    }
+
+    MusicPiece m2() {
+        return m2;
+    }
+
     @Override
     public double numBeats() {
         return m1.numBeats() + m2.numBeats();
@@ -39,5 +47,10 @@ class Concat implements MusicPiece {
     @Override
     public String toString() {
         return m1.toString() + ", " + m2.toString();
+    }
+
+    @Override
+    public <R> R accept(Visitor<R> visitor) {
+        return visitor.on(this);
     }
 }

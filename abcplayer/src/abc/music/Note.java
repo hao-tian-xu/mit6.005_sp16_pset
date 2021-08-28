@@ -26,6 +26,10 @@ class Note implements MusicPiece {
         assert numBeats > 0;
     }
 
+    Pitch pitch() {
+        return pitch;
+    }
+
     @Override
     public double numBeats() {
         return numBeats;
@@ -44,5 +48,10 @@ class Note implements MusicPiece {
     @Override
     public String toString() {
         return pitch.toString() + "(" + String.format("%.3f", numBeats) + ")";
+    }
+
+    @Override
+    public <R> R accept(Visitor<R> visitor) {
+        return visitor.on(this);
     }
 }

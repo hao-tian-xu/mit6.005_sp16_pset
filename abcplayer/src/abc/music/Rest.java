@@ -42,4 +42,9 @@ class Rest implements MusicPiece {
     public String toString() {
         return "Rest(" + String.format("%.3f", numBeats) + ")";
     }
+
+    @Override
+    public <R> R accept(Visitor<R> visitor) {
+        return visitor.on(this);
+    }
 }

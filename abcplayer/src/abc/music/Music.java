@@ -67,7 +67,8 @@ public class Music {
      */
     public void addVoices(SequencePlayer player, double warmupBeat) {
         for (MusicPiece voice : voiceList) {
-            voice.addPiece(player, warmupBeat);
+            MusicPiece.addPiece(voice, player, warmupBeat);
+//            voice.addPiece(player, warmupBeat);
         }
     }
 
@@ -79,4 +80,38 @@ public class Music {
                "\nComposer: "   + header.get(AbcGrammar.FIELD_COMPOSER) +
                "\nKey: "        + header.get(AbcGrammar.FIELD_KEY);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

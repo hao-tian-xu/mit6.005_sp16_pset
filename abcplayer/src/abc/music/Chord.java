@@ -17,10 +17,14 @@ class Chord implements MusicPiece {
     //      true
     // Safety from rep exposure
     //      All fields are private and final
-    //      notes is a mutable List, so constructor makes a defensive copy from parameter
+    //      notes is a mutable List, so constructor and notes() makes a defensive copy from parameter
 
     Chord(List<MusicPiece> notes) {
         this.notes = new ArrayList<>(notes);
+    }
+
+    List<MusicPiece> notes() {
+        return new ArrayList<>(notes);
     }
 
     @Override
@@ -43,5 +47,10 @@ class Chord implements MusicPiece {
         return "Chord("
              + notes.stream().map(MusicPiece::toString).reduce((x, y) -> x + " " + y).get()
              + ")";
+    }
+
+    @Override
+    public <R> R accept(Visitor<R> visitor) {
+        return visitor.on(this);
     }
 }
