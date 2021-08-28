@@ -12,6 +12,10 @@ import java.util.stream.Collectors;
 
 public class AbcParser {
 
+    // OPT-PRIORITY: split AbcParser into multiple classes and implement spec and test
+    // OPT-DOC-PRIORITY: update spec to consider all input and output conditions
+    //          (some conditions could be ignored and method can do anything with them)
+
     // opt: header map DT
     /*final String NUMBER = "X";
     final String TITLE = "T";
@@ -21,7 +25,7 @@ public class AbcParser {
     final String TEMPO = "Q";
     final String KEY = "K";*/
 
-    // rep
+    // Rep
     private final Map<AbcGrammar, String> headerMap = new HashMap<>();
     private Set<String> voiceSet = new HashSet<>();
     private int beatsPerMinute, keySignatureTranspose;
@@ -46,8 +50,9 @@ public class AbcParser {
         }
     }
 
-    //  safety from rep exposure argument
-    //      All fields are private, final and immutable
+    //  Safety from rep exposure
+    //      All fields are private
+    //      opt-doc: safety from rep exposure
 
     //////////////////
     // MAIN PARSER
@@ -83,7 +88,7 @@ public class AbcParser {
                 }
             }
             // build Music instance
-            return new Music(voiceList, headerMap, beatsPerMinute);
+            return new Music(voiceList, new HashMap<>(headerMap), beatsPerMinute);
         } catch (UnableToParseException e) {
             e.printStackTrace();
             throw new IllegalArgumentException("invalid expression");
@@ -93,6 +98,8 @@ public class AbcParser {
     //////////////////
     // HELPERS
     //////////////////
+
+    // header信息分析后储存
     void parseHeader(ParseTree<AbcGrammar> tree) {
         switch (tree.name()) {
             case HEADER:
@@ -128,187 +135,7 @@ public class AbcParser {
         }
     }
 
-    List<String> parseMultiVoice(ParseTree<AbcGrammar> tree) {
-        Map<String, StringBuilder> voiceMap = new HashMap<>();
-        for (String voice_signature : voiceSet) voiceMap.put(voice_signature, new StringBuilder());
-        for (ParseTree<AbcGrammar> child : tree.children()) {
-            if (child.children().size() == 3) {
-                String voice_signature = child.children().get(0).text();
-                if (voiceSet.contains(voice_signature))
-                    voiceMap.get(voice_signature).append(child.children().get(2).text());
-                else throw new AssertionError("voice doesn't exist");
-            }
-        }
-        return voiceMap.values().stream().map(StringBuilder::toString).collect(Collectors.toList());
-    }
-
-    MusicPiece parseVoice(ParseTree<AbcGrammar> tree) {
-        switch (tree.name()) {
-            // parse bar_notes to deal with accidentals
-            case BAR_NOTES:
-                try {
-                    return parseBar(barParser.parse(processAccidental(tree.text())));
-                } catch (UnableToParseException e) {
-                    e.printStackTrace();
-                    throw new IllegalArgumentException("invalid expression");
-                }
-            // process repeat
-            case REPEAT:
-                List<ParseTree<AbcGrammar>> repeated = Arrays.asList(
-                        tree.children().get(0), tree.children().get(1),
-                        tree.children().get(0), tree.children().get(1)
-                );
-                // Concat all parts
-                return repeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
-            case NTH_REPEAT:
-                List<ParseTree<AbcGrammar>> nthRepeated = Arrays.asList(
-                        tree.children().get(0), tree.children().get(1),
-                        tree.children().get(0), tree.children().get(2)
-                );
-                // Concat all parts
-                return nthRepeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
-            // repeat
-            case REPEAT_PHRASE: case FIRST_REPEAT: case SECOND_REPEAT:
-            // voice
-            case VOICE: case SECTION:
-            // phrase
-            case PHRASE:
-            // bar
-            case BAR_ELEMENT:
-                // Concat all children
-                return tree.children().stream().map(this::parseVoice).reduce(MusicPiece::make).get();
-            default:
-                throw new AssertionError("parseVoice: should never get here " + tree.name());
-        }
-    }
-
-    String processAccidental(String barNotes) {
-        final String regex = "(?<accidental>([\\^_]{1,2}|=)(?<note>[a-gA-G][,']*))(?<rest>[^\\r\\n]*)";
-        final Matcher matcher = Pattern.compile(regex).matcher(barNotes);
-        if (matcher.find()) {
-            String rest = processAccidental(matcher.group("rest"));
-            String regex_subst = "(?<![\\^_=])" + matcher.group("note");
-            String replace = matcher.group("accidental")
-                    + rest.replaceAll(regex_subst, matcher.group("accidental"));
-            barNotes = matcher.replaceAll(replace);
-        }
-//            System.out.println(barNotes);
-//            return barParser.parse(barNotes);
-        return barNotes;
-    }
-
-    MusicPiece parseBar(ParseTree<AbcGrammar> tree) {
-        switch (tree.name()) {
-            case BAR_NOTES:
-                // element
-            case ELEMENT:
-            case NOTE_ELEMENT:
-                // Concat all children
-                return tree.children().stream().map(this::parseBar).reduce(MusicPiece::make).get();
-            case NOTE:
-                // note length
-                double lengthNote;
-                if (tree.children().size() == 1) lengthNote = 1;
-                else lengthNote = parseNumber(tree.children().get(1));
-                // pitch or rest
-                ParseTree<AbcGrammar> treeNote = tree.children().get(0).children().get(0);
-                switch (treeNote.name()) {
-                    case REST:
-                        return MusicPiece.make(lengthNote);
-                    case PITCH:
-                        Pitch pitch = parsePitch(treeNote);
-                        return MusicPiece.make(lengthNote, pitch);
-                }
-            case MULTI_NOTE:
-                return MusicPiece.make(
-                        tree.children().stream().map(this::parseBar).collect(Collectors.toList())
-                );
-            case TUPLET_ELEMENT:
-                double tupletFactor = parseNumber(tree.children().get(0));
-                return tree.children().subList(1, tree.children().size()).  // exclude tuplet_spec
-                        stream().map(this::parseBar).map(x -> x.factorTuplet(tupletFactor)).
-                        reduce(MusicPiece::make).get();
-            default:
-                throw new AssertionError("parseBar: should never get here " + tree.name());
-        }
-    }
-
-    Pitch parsePitch(ParseTree<AbcGrammar> tree) {
-        final String regex = "(?<accidental>([\\^_]{1,2}|=))?(?<note>[a-gA-G])(?<octave>[,']+)?";
-        final Matcher matcher = Pattern.compile(regex).matcher(tree.text());
-        if (matcher.find()) {
-            int transpose = 0;
-            String accidental = matcher.group("accidental");
-            String note = matcher.group("note");
-            String octave = matcher.group("octave");
-            // accidental
-            if (accidental != null)
-                switch (accidental) {
-                    case "__":  transpose --;
-                    case "_":   transpose --; break;
-                    case "^^":  transpose ++;
-                    case "^":   transpose ++; break;
-                    case "=":   break;
-                    default: throw new AssertionError("wrong accidental format");
-                }
-                // else if affected by header key
-            else if (keySignatureNotes.contains(note.toUpperCase()))
-                transpose += keySignatureTranspose;
-            // octave
-            if (octave != null) {
-                if (octave.contains(",")) transpose -= Pitch.OCTAVE * octave.length();
-                else transpose += Pitch.OCTAVE * octave.length();
-            }
-            // note
-            if (Character.isLowerCase(note.charAt(0))) transpose += Pitch.OCTAVE;
-            // return pitch
-            return new Pitch(note.toUpperCase().charAt(0)).transpose(transpose);
-        }
-        throw new AssertionError("wrong pitch format");
-    }
-
-    double parseNumber(ParseTree<AbcGrammar> tree) {
-        switch (tree.name()) {
-            case TUPLET_SPEC:
-                switch (Integer.parseInt(tree.text().substring(1,2))) {
-                    case 2: return 3.0/2;
-                    case 3: return 2.0/3;
-                    case 4: return 3.0/4;
-                    default: return 1.0;
-                }
-            case NOTE_LENGTH:
-                final String regex = "(?<numerator>\\d+)?(?<slash>/(?<denominator>\\d+)?)?";
-                Matcher matcher = Pattern.compile(regex).matcher(tree.text());
-                double length = 1.0;
-                if (matcher.find()) {
-                    String numerator = matcher.group("numerator");
-                    String slash = matcher.group("slash");
-                    String denominator = matcher.group("denominator");
-                    if (numerator != null)
-                        length *= Integer.parseInt(numerator);
-                    if (slash != null) {
-                        if (denominator != null)
-                            length /= Integer.parseInt(denominator);
-                        else length /= 2;
-                    }
-                }
-                return length;
-            case METER:
-                if (tree.text().matches("C\\|?")) return 1;
-                else return parseNumber(tree.children().get(0));
-            case METER_FRACTION:
-            case NOTE_LENGTH_STRICT:
-                return parseNumber(tree.children().get(0)) / parseNumber(tree.children().get(1));
-            case NUMBER:
-                return Double.parseDouble(tree.text());
-            default:
-                throw new AssertionError("parseNumber: should never get here");
-        }
-    }
-
-    //////////////////
-    // HEADER
-    //////////////////
+    // header信息处理并存储
     void headerProcess() {
         // Default setting
         // When the field M is omitted, the default meter is 4/4.
@@ -364,6 +191,196 @@ public class AbcParser {
         }
     }
 
+    // body分析为多个声部
+    List<String> parseMultiVoice(ParseTree<AbcGrammar> tree) {
+        Map<String, StringBuilder> voiceMap = new HashMap<>();
+        for (String voice_signature : voiceSet) voiceMap.put(voice_signature, new StringBuilder());
+        for (ParseTree<AbcGrammar> child : tree.children()) {
+            if (child.children().size() == 3) {
+                String voice_signature = child.children().get(0).text();
+                if (voiceSet.contains(voice_signature))
+                    voiceMap.get(voice_signature).append(child.children().get(2).text());
+                else throw new AssertionError("voice doesn't exist");
+            }
+        }
+        return voiceMap.values().stream().map(StringBuilder::toString).collect(Collectors.toList());
+    }
+
+    // 声部分析为多个段落Concat
+    // 处理段落的重复
+    // 处理后的段落分析为多个小节Concat
+    MusicPiece parseVoice(ParseTree<AbcGrammar> tree) {
+        switch (tree.name()) {
+            // parse bar_notes to deal with accidentals
+            case BAR_NOTES:
+                try {
+                    return parseBar(barParser.parse(processAccidental(tree.text())));
+                } catch (UnableToParseException e) {
+                    e.printStackTrace();
+                    throw new IllegalArgumentException("invalid expression");
+                }
+            // process repeat
+            case REPEAT:
+                List<ParseTree<AbcGrammar>> repeated = Arrays.asList(
+                        tree.children().get(0), tree.children().get(1),
+                        tree.children().get(0), tree.children().get(1)
+                );
+                // Concat all parts
+                return repeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
+            case NTH_REPEAT:
+                List<ParseTree<AbcGrammar>> nthRepeated = Arrays.asList(
+                        tree.children().get(0), tree.children().get(1),
+                        tree.children().get(0), tree.children().get(2)
+                );
+                // Concat all parts
+                return nthRepeated.stream().map(this::parseVoice).reduce(MusicPiece::make).get();
+            // repeat
+            case REPEAT_PHRASE: case FIRST_REPEAT: case SECOND_REPEAT:
+            // voice
+            case VOICE: case SECTION:
+            // phrase
+            case PHRASE:
+            // bar
+            case BAR_ELEMENT:
+                // Concat all children
+                return tree.children().stream().map(this::parseVoice).reduce(MusicPiece::make).get();
+            default:
+                throw new AssertionError("parseVoice: should never get here " + tree.name());
+        }
+    }
+
+    // 处理小节的变音记号
+    String processAccidental(String barNotes) {
+        final String regex = "(?<accidental>([\\^_]{1,2}|=)(?<note>[a-gA-G][,']*))(?<rest>[^\\r\\n]*)";
+        final Matcher matcher = Pattern.compile(regex).matcher(barNotes);
+        if (matcher.find()) {
+            String rest = processAccidental(matcher.group("rest"));
+            String regex_subst = "(?<![\\^_=])" + matcher.group("note");
+            String replace = matcher.group("accidental")
+                    + rest.replaceAll(regex_subst, matcher.group("accidental"));
+            barNotes = matcher.replaceAll(replace);
+        }
+//            System.out.println(barNotes);
+//            return barParser.parse(barNotes);
+        return barNotes;
+    }
+
+    // 处理后的小节分析为多个音符元素Concat
+    // 处理音符元素
+    MusicPiece parseBar(ParseTree<AbcGrammar> tree) {
+        switch (tree.name()) {
+            case BAR_NOTES:
+                // element
+            case ELEMENT:
+            case NOTE_ELEMENT:
+                // Concat all children
+                return tree.children().stream().map(this::parseBar).reduce(MusicPiece::make).get();
+            case NOTE:
+                // note length
+                double lengthNote;
+                if (tree.children().size() == 1) lengthNote = 1;
+                else lengthNote = parseNumber(tree.children().get(1));
+                // pitch or rest
+                ParseTree<AbcGrammar> treeNote = tree.children().get(0).children().get(0);
+                switch (treeNote.name()) {
+                    case REST:
+                        return MusicPiece.make(lengthNote);
+                    case PITCH:
+                        Pitch pitch = parsePitch(treeNote);
+                        return MusicPiece.make(lengthNote, pitch);
+                }
+            case MULTI_NOTE:
+                return MusicPiece.make(
+                        tree.children().stream().map(this::parseBar).collect(Collectors.toList())
+                );
+            case TUPLET_ELEMENT:
+                double tupletFactor = parseNumber(tree.children().get(0));
+                return tree.children().subList(1, tree.children().size()).  // exclude tuplet_spec
+                        stream().map(this::parseBar).map(x -> x.factorTuplet(tupletFactor)).
+                        reduce(MusicPiece::make).get();
+            default:
+                throw new AssertionError("parseBar: should never get here " + tree.name());
+        }
+    }
+
+    // 处理pitch
+    Pitch parsePitch(ParseTree<AbcGrammar> tree) {
+        final String regex = "(?<accidental>([\\^_]{1,2}|=))?(?<note>[a-gA-G])(?<octave>[,']+)?";
+        final Matcher matcher = Pattern.compile(regex).matcher(tree.text());
+        if (matcher.find()) {
+            int transpose = 0;
+            String accidental = matcher.group("accidental");
+            String note = matcher.group("note");
+            String octave = matcher.group("octave");
+            // accidental
+            if (accidental != null)
+                switch (accidental) {
+                    case "__":  transpose --;
+                    case "_":   transpose --; break;
+                    case "^^":  transpose ++;
+                    case "^":   transpose ++; break;
+                    case "=":   break;
+                    default: throw new AssertionError("wrong accidental format");
+                }
+                // else if affected by header key
+            else if (keySignatureNotes.contains(note.toUpperCase()))
+                transpose += keySignatureTranspose;
+            // octave
+            if (octave != null) {
+                if (octave.contains(",")) transpose -= Pitch.OCTAVE * octave.length();
+                else transpose += Pitch.OCTAVE * octave.length();
+            }
+            // note
+            if (Character.isLowerCase(note.charAt(0))) transpose += Pitch.OCTAVE;
+            // return pitch
+            return new Pitch(note.toUpperCase().charAt(0)).transpose(transpose);
+        }
+        throw new AssertionError("wrong pitch format");
+    }
+
+    // 处理数字
+    double parseNumber(ParseTree<AbcGrammar> tree) {
+        switch (tree.name()) {
+            case TUPLET_SPEC:
+                switch (Integer.parseInt(tree.text().substring(1,2))) {
+                    case 2: return 3.0/2;
+                    case 3: return 2.0/3;
+                    case 4: return 3.0/4;
+                    default: return 1.0;
+                }
+            case NOTE_LENGTH:
+                final String regex = "(?<numerator>\\d+)?(?<slash>/(?<denominator>\\d+)?)?";
+                Matcher matcher = Pattern.compile(regex).matcher(tree.text());
+                double length = 1.0;
+                if (matcher.find()) {
+                    String numerator = matcher.group("numerator");
+                    String slash = matcher.group("slash");
+                    String denominator = matcher.group("denominator");
+                    if (numerator != null)
+                        length *= Integer.parseInt(numerator);
+                    if (slash != null) {
+                        if (denominator != null)
+                            length /= Integer.parseInt(denominator);
+                        else length /= 2;
+                    }
+                }
+                return length;
+            case METER:
+                if (tree.text().matches("C\\|?")) return 1;
+                else return parseNumber(tree.children().get(0));
+            case METER_FRACTION:
+            case NOTE_LENGTH_STRICT:
+                return parseNumber(tree.children().get(0)) / parseNumber(tree.children().get(1));
+            case NUMBER:
+                return Double.parseDouble(tree.text());
+            default:
+                throw new AssertionError("parseNumber: should never get here");
+        }
+    }
+
+    //////////////////
+    // TEST ONLY
+    //////////////////
     String headerInfo() {
         return headerMap.toString();
     }

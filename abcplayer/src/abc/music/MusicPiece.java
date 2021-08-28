@@ -85,7 +85,7 @@ public interface MusicPiece {
      */
     MusicPiece factorTuplet(double tupletFactor);
 
-    // opt: update numBeats fields to have better toString representation
+    // opt: update numBeats fields to have better toString representation （also for test)
     @Override
     String toString();
 }

@@ -4,6 +4,8 @@ import abc.grammar.AbcGrammar;
 import abc.grammar.AbcParser;
 import abc.sound.SequencePlayer;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -22,9 +24,14 @@ import java.util.Map;
  * @author Xu Hao-Tian
  */
 public class Music {
+
+    // Rep
+    // OPT-Priority：Map and List to immutable type
     private final List<MusicPiece> voiceList;
     private final Map<AbcGrammar, String> header;   // opt: optimise the DT of header
     private final int beatsPerMinute;
+
+    // Priority-Doc: AF, RI, RE
 
     /**
      * construct a Music instance
@@ -34,7 +41,7 @@ public class Music {
      */
     public Music(List<MusicPiece> voiceList, Map<AbcGrammar, String> header, int beatsPerMinute) {
         this.voiceList = voiceList;
-        this.header = header;
+        this.header = new HashMap<>(header);
         this.beatsPerMinute = beatsPerMinute;
     }
 
